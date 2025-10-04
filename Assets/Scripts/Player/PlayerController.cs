@@ -60,18 +60,16 @@ namespace Player
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
                 if (hoveredTile == null) return;
+                if (!hoveredTile.IsBuildable) return;
+
+                hoveredTile.transform.localScale = originalScale;
 
                 hexGridManager.MarkBuilt(hoveredTile, inputTileOwner);
+
                 hoveredTile = null;
-                
-                if (TryGetComponent<Tile>(out var tile))
-                {
-                    if (!tile.IsBuildable) return;
-                    
-                    
-                }
-                
             }
+
+
         }
 
         private void ResetHoveredTile()
