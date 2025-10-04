@@ -82,8 +82,14 @@ namespace UI
 
         public void ShowTurn(int player)
         {
-            if (label) label.text = $"Player {player}'s turn";
-
+            
+            if (label) 
+            { 
+                label.text = player == 2? $"Capitalist Turn": $"Activist Turn";
+                label.color = player == 2? Color.red: Color.green;
+            }
+            
+            
             if (_lastPlayer == player)
             {
                 SetHudInstant(player);
