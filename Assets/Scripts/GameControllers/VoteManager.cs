@@ -1,4 +1,6 @@
 using System;
+using UnityEngine;
+using Random = System.Random;
 
 namespace GameControllers
 {
@@ -21,6 +23,7 @@ namespace GameControllers
         public int RollWinner()
         {
             int roll = _rng.Next(0, 100);
+            Debug.Log("Rolling for next turn"+ roll);
             return roll < P1 ? 1 : 2;
         }
         

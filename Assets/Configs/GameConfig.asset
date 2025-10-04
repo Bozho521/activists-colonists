@@ -16,3 +16,7 @@ MonoBehaviour:
   rngSeed: 12345
   uiTweenSeconds: 0.25
   deterministic: 1
+  cost_BuildTwo: 3
+  cost_BuildAnywhere: 3
+  cost_TakeOver: 4
+  voteDeltaPerBuild: 10

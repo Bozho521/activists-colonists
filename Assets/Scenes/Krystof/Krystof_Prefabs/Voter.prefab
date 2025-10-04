@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2348300015195975288}
   - component: {fileID: 8036861800507509354}
   - component: {fileID: 7934083282885675552}
+  - component: {fileID: 5533001620754353731}
   m_Layer: 0
   m_Name: Voter
   m_TagString: Untagged
@@ -89,3 +90,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5533001620754353731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6604072905274442665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513984f26f8a78543a2c61b935b961b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.VoteSlot
