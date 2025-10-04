@@ -89,6 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78bf934b192bc2419efb72bc2c0e719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tiles.HexGridManager
+  neighborCenterDist: 1.4
+  tolerance: 1
 --- !u!1001 &170916790424193180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97,6 +99,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -107,7 +113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -153,6 +159,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1255212737489337346}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2198233013614905810}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8702144603598180807}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 4111657335102163728}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 5216316564909322834}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 6342782468960138353}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[6]'
+      value: 
+      objectReference: {fileID: 8513050771331746481}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -163,6 +201,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 170916790424193180}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8060363812189233314 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 170916790424193180}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &172885422730703361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -171,6 +220,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -181,7 +234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -227,6 +280,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5248236940909029229}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3251161791940878995}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -237,6 +302,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 172885422730703361}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8062898693032204863 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 172885422730703361}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &881903846060178403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -245,6 +321,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -255,7 +335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -301,6 +381,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6784766480979917299}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7150922593860494246}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 5248236940909029229}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -311,6 +407,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 881903846060178403}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7043131893946389469 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 881903846060178403}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &1028666884320775694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -319,6 +426,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -329,7 +440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -375,6 +486,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6784766480979917299}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5974417993864945606}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7126609909299632496}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 6525173257158029931}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -385,6 +516,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 1028666884320775694}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7189313806021191216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 1028666884320775694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &1062343676947008408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -393,6 +535,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -403,7 +549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -449,6 +595,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1941910983674748109}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 6784766480979917299}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7043131893946389469}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 5248236940909029229}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 242077839947478223}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 269855113814087419}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -459,6 +633,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 1062343676947008408}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7150922593860494246 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 1062343676947008408}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &1086052387453506742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -467,6 +652,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -477,7 +666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -523,6 +712,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4825996020066795843}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 6002280352086156779}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 4025054403711857929}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 5029223791926550694}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 3352596021176569646}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -533,6 +746,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 1086052387453506742}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7102584669743365256 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 1086052387453506742}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &1109521789572411726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -541,6 +765,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -551,7 +779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -597,6 +825,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1941910983674748109}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 6784766480979917299}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 5335637295431078630}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 5974417993864945606}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 9093783617693430855}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 7189313806021191216}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -607,6 +863,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 1109521789572411726}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7126609909299632496 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 1109521789572411726}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &1418776547987528825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -615,6 +882,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -625,7 +896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -671,6 +942,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 537882418460001694}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2214315595037252091}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1941910983674748109}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 6088598999257888006}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 5335637295431078630}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 7126609909299632496}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -681,6 +980,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 1418776547987528825}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9093783617693430855 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 1418776547987528825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &1533237822446434809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -689,6 +999,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -699,7 +1013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -745,6 +1059,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1255212737489337346}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8060363812189233314}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3773262076444372094}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 4111657335102163728}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 5216316564909322834}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -755,6 +1093,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 1533237822446434809}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8702144603598180807 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 1533237822446434809}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &1992688176133153423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -763,6 +1112,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -773,7 +1126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -819,6 +1172,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8060363812189233314}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2198233013614905810}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 6342782468960138353}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 5029223791926550694}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 3352596021176569646}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -829,6 +1206,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 1992688176133153423}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8513050771331746481 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 1992688176133153423}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &2375367712266480642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -837,6 +1225,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -847,7 +1239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -893,6 +1285,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1772827466956756537}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4825996020066795843}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 501034696013059123}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 4025054403711857929}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -903,6 +1315,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 2375367712266480642}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5581118400345850940 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 2375367712266480642}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &2690450479382957907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -911,6 +1334,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -921,7 +1348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -967,6 +1394,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7150922593860494246}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7043131893946389469}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8062898693032204863}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 269855113814087419}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 3251161791940878995}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -977,6 +1428,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 2690450479382957907}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5248236940909029229 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 2690450479382957907}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &2731162158979504748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -985,6 +1447,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -995,7 +1461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1041,6 +1507,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8060363812189233314}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2198233013614905810}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8702144603598180807}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 4111657335102163728}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1051,6 +1537,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 2731162158979504748}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5216316564909322834 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 2731162158979504748}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &2848773183344966360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1059,6 +1556,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -1069,7 +1570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1115,6 +1616,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6088598999257888006}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5974417993864945606}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 9093783617693430855}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 7126609909299632496}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1125,6 +1646,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 2848773183344966360}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5335637295431078630 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 2848773183344966360}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &2902703690746431640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1133,6 +1665,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -1143,7 +1679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1189,6 +1725,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6342782468960138353}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8513050771331746481}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 4025054403711857929}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2911776735555768209}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 3352596021176569646}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 7102584669743365256}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1199,6 +1763,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 2902703690746431640}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5029223791926550694 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 2902703690746431640}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &3421183256665942397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1207,6 +1782,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -1217,7 +1796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1263,6 +1842,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5581118400345850940}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 6002280352086156779}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 4025054403711857929}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 7102584669743365256}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1273,6 +1872,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 3421183256665942397}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4825996020066795843 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 3421183256665942397}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &3723149707822322125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1281,6 +1891,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -1291,7 +1905,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1337,6 +1951,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1941910983674748109}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7150922593860494246}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7043131893946389469}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 7126609909299632496}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 7189313806021191216}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1347,6 +1985,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 3723149707822322125}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6784766480979917299 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 3723149707822322125}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &3856500513904270415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1355,6 +2004,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -1365,7 +2018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1411,6 +2064,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1255212737489337346}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8060363812189233314}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2883941800174186507}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8513050771331746481}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2911776735555768209}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 5029223791926550694}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1421,6 +2102,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 3856500513904270415}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6342782468960138353 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 3856500513904270415}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &3966843636890065493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1489,6 +2181,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7189313806021191216}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3118659357434101202}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1499,6 +2203,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 3966843636890065493}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6525173257158029931 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 3966843636890065493}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &4178233537377410360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1507,6 +2222,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -1517,7 +2236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1563,6 +2282,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 537882418460001694}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1772827466956756537}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 5335637295431078630}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 9093783617693430855}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1573,6 +2312,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 4178233537377410360}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6088598999257888006 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 4178233537377410360}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &4525976793243930069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1581,6 +2331,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -1591,7 +2345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1637,6 +2391,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4825996020066795843}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7102584669743365256}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1647,6 +2413,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 4525976793243930069}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6002280352086156779 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 4525976793243930069}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &4569597017496762360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1655,6 +2432,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -1665,7 +2446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1711,6 +2492,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5335637295431078630}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7126609909299632496}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7189313806021191216}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1721,6 +2518,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
   m_PrefabInstance: {fileID: 4569597017496762360}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5974417993864945606 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 4569597017496762360}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!1001 &4656000359421233837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1729,6 +2537,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -1739,7 +2551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1785,11 +2597,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5248236940909029229}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8062898693032204863}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 269855113814087419}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1369453073577505540}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &3251161791940878995 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 4656000359421233837}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &5072975544133206332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -1803,6 +2646,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -1813,7 +2660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1859,11 +2706,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8513050771331746481}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5029223791926550694}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7102584669743365256}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &3352596021176569646 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 4829492218195584784}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &5043598770347355265 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -1877,6 +2751,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -1887,7 +2765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1933,11 +2811,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 932758836054369303}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1255212737489337346}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1945217864745577730}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 6342782468960138353}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2911776735555768209}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 3073458626368677585}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &2883941800174186507 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 5009915994703517749}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &4863174856695403428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -1951,6 +2868,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -1961,7 +2882,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2007,11 +2928,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1945217864745577730}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2883941800174186507}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 6342782468960138353}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 501034696013059123}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 4025054403711857929}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 5029223791926550694}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &2911776735555768209 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 5038305633969760175}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &4832383900937677886 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -2025,6 +2985,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -2035,7 +2999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2081,11 +3045,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4309828464591552563}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 932758836054369303}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1369453073577505540}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 3773262076444372094}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &3157538084592323536 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 5067334549188715502}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &4659380793089206399 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -2159,11 +3154,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6525173257158029931}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &3118659357434101202 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 5099387516379665900}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &4629438887972183677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -2177,6 +3191,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -2187,7 +3205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2233,11 +3251,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2214315595037252091}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 242077839947478223}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 4309828464591552563}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 932758836054369303}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1945217864745577730}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2883941800174186507}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &3073458626368677585 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 5126226201756634863}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &4746715236292625790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -2251,6 +3308,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -2261,7 +3322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2307,11 +3368,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8060363812189233314}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2198233013614905810}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8702144603598180807}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 5216316564909322834}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &4111657335102163728 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 6092410748505776942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &5942267171762366655 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -2325,6 +3417,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -2335,7 +3431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2381,11 +3477,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 242077839947478223}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 269855113814087419}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 932758836054369303}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1369453073577505540}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 3157538084592323536}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 3073458626368677585}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &4309828464591552563 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 6218498994046855181}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &5816170405003551644 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -2399,6 +3534,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -2409,7 +3548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2455,11 +3594,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 932758836054369303}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1255212737489337346}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3157538084592323536}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8702144603598180807}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &3773262076444372094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 6475696987759625280}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &6856158482133143505 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -2473,6 +3643,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -2483,7 +3657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2529,11 +3703,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5581118400345850940}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4825996020066795843}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 501034696013059123}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2911776735555768209}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 5029223791926550694}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 7102584669743365256}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &4025054403711857929 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 6510164795554815287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &6675315042824836774 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -2547,6 +3760,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -2557,7 +3774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2603,11 +3820,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4309828464591552563}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1255212737489337346}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3157538084592323536}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 3773262076444372094}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2883941800174186507}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 3073458626368677585}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &932758836054369303 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 7021902350863371305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &7460623130920748984 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -2621,6 +3877,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -2631,7 +3891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2677,11 +3937,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: replacementPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1772827466956756537}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2214315595037252091}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 6088598999257888006}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1945217864745577730}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 9093783617693430855}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 501034696013059123}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &537882418460001694 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 7707326859724008864}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &7786256704848799281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -2695,6 +3998,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -2705,7 +4012,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2751,11 +4058,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 537882418460001694}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1772827466956756537}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 5581118400345850940}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1945217864745577730}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 4025054403711857929}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2911776735555768209}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &501034696013059123 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 7743681873818205197}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &7893876022695278492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -2769,6 +4115,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -2779,7 +4129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2825,11 +4175,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7150922593860494246}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5248236940909029229}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 242077839947478223}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 4309828464591552563}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 3251161791940878995}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1369453073577505540}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &269855113814087419 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 7943692303399894725}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &7549741368945325396 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -2843,6 +4232,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -2853,7 +4246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2899,11 +4292,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2214315595037252091}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1941910983674748109}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7150922593860494246}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 269855113814087419}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 4309828464591552563}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 3073458626368677585}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &242077839947478223 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 7989127660284517617}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &7504314807364392800 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -2917,6 +4349,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -2927,7 +4363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2973,11 +4409,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8060363812189233314}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4111657335102163728}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 5216316564909322834}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8513050771331746481}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &2198233013614905810 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 8287375944509563372}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &8500851382456494717 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -2991,6 +4458,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -3001,7 +4472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3047,11 +4518,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 537882418460001694}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1941910983674748109}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 242077839947478223}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1945217864745577730}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 9093783617693430855}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 3073458626368677585}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &2214315595037252091 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 8302888978623508933}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &8485470270133713492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -3065,6 +4575,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -3075,7 +4589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3121,11 +4635,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 537882418460001694}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5581118400345850940}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 6088598999257888006}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 501034696013059123}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &1772827466956756537 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 8437851191929667079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &8350517299605403030 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -3139,6 +4684,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -3149,7 +4698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3195,11 +4744,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2214315595037252091}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 6784766480979917299}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7150922593860494246}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 242077839947478223}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 9093783617693430855}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 7126609909299632496}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &1941910983674748109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 8606396497636717811}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &8181822048006602594 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -3213,6 +4801,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -3223,7 +4815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3269,11 +4861,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 537882418460001694}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2214315595037252091}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2883941800174186507}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 501034696013059123}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2911776735555768209}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 3073458626368677585}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &1945217864745577730 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 8610267393798096188}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &8180343811539455661 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -3287,6 +4918,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -3297,7 +4932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3343,11 +4978,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 932758836054369303}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8060363812189233314}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3773262076444372094}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8702144603598180807}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2883941800174186507}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[5]'
+      value: 
+      objectReference: {fileID: 6342782468960138353}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &1255212737489337346 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 9000572024590521404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &8796602474487111597 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
@@ -3361,6 +5035,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606336374005314120}
     m_Modifications:
+    - target: {fileID: 459412804113461816, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -3371,7 +5049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99996
+      value: 154.71184
       objectReference: {fileID: 0}
     - target: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3417,11 +5095,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krystof_hexagon (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 269855113814087419}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4309828464591552563}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3251161791940878995}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: 'neighbors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 3157538084592323536}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+--- !u!114 &1369453073577505540 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+  m_PrefabInstance: {fileID: 9115949290080361274}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
 --- !u!4 &8681216447283712171 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
