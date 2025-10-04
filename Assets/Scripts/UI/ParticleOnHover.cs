@@ -16,13 +16,11 @@ public class ParticleOnHover : MonoBehaviour
 
     void OnMouseEnter()
     {
-        Debug.Log("Mouse over Gameobject.");
         voteParticle.Play();
     }
 
     void OnMouseExit()
     {
-        Debug.Log("Mouse now exiting.");
         voteParticle.Stop();
     }
 }
