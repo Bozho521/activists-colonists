@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Data;
 using Enums;
@@ -21,10 +22,12 @@ namespace GameControllers
         [Header("UI")]
         [SerializeField] private VoteBarUI voteBar;
         [SerializeField] private TurnBannerUI turnUI;
-        // TODO: hook an action selection UI later that calls SelectAction(...)
+        
 
+        [Header("Action Elements")]
         [SerializeField]private ActionMode currentAction = ActionMode.BasicBuild;
         
+        public bool BlockRayCast { get; set; }
         
         public GameState State { get; private set; } = GameState.Boot;
         public int ActivePlayer { get; private set; } = 1; // 1 or 2
@@ -45,7 +48,8 @@ namespace GameControllers
 
             _votes = new VoteManager(
                 gameConfig.startVoteP1,
-                gameConfig.deterministic ? gameConfig.rngSeed : (int?)null
+                gameConfig.deterministic ? gameConfig.rngSeed : (int?)null,
+                gameConfig.minVotePercent
             );
             _votes.OnVoteChanged += (p1, p2) => voteBar?.SetVotes(p1, p2);
 
@@ -58,13 +62,14 @@ namespace GameControllers
             voteBar?.SetVotes(_votes.P1, 100 - _votes.P1);
 
             ActivePlayer = _votes.RollWinner();
-            Debug.Log("active player is :" + ActivePlayer);
+            turnUI.UpdatePlayerPoints(ActivePlayer, _players[ActivePlayer].Points);
             
             BeginTurn();
         }
 
         private void Update()
         {
+            if (BlockRayCast) return;
             if (State != GameState.PlayerTurn) return;
 
             if (Keyboard.current.digit1Key.wasPressedThisFrame) SelectAction(ActionMode.BasicBuild);
@@ -83,7 +88,7 @@ namespace GameControllers
             turnUI?.ShowTurn(ActivePlayer);
             _players[ActivePlayer].AddPoints(1);
             SelectAction(ActionMode.BasicBuild);
-
+            turnUI?.UpdatePlayerPoints(ActivePlayer, _players[ActivePlayer].Points);
             Transition(GameState.PlayerTurn);
             OnTurnChanged?.Invoke(ActivePlayer);
         }
@@ -91,10 +96,7 @@ namespace GameControllers
         private void EndTurn()
         {
             ActivePlayer = _votes.RollWinner();
-
-            Debug.Log("active player is :" + ActivePlayer);
-            Debug.Log("active player stats :" + _players[ActivePlayer].Points);
-
+            turnUI.UpdatePlayerPoints(ActivePlayer, _players[ActivePlayer].Points);
 
             if (!grid.HasAvailableBuildableTiles())
             {
@@ -166,7 +168,6 @@ namespace GameControllers
 
         private void TryExecuteCurrentAction()
         {
-            Debug.Log("Player "+ ActivePlayer + " trying to execute current action");
             var me = _players[ActivePlayer];
             if (me.Points < _actionCost)
             {
@@ -216,28 +217,23 @@ namespace GameControllers
                 }
                     break;
             }
-
+            
             if (builtCount > 0 && gameConfig.voteDeltaPerBuild != 0)
             {
-                int delta = (ActivePlayer == 1 ? +1 : -1) * (gameConfig.voteDeltaPerBuild * builtCount);
-                _votes.AdjustVotes(delta);
+                int desired = (ActivePlayer == 1 ? +1 : -1) * (gameConfig.voteDeltaPerBuild * builtCount);
+                int applied = _votes.AdjustVotes(desired);
+
+                if (applied == 0)
+                {
+                    //todo: hint that it capped
+                }
+                
             }
 
             ClearTargets();
             EndTurn();
         }
         
-        
-        private void EndGame()
-        {
-            Transition(GameState.Ended);
-            int p1Owned = grid.CountOwned(TileOwner.P1);
-            int p2Owned = grid.CountOwned(TileOwner.P2);
-            int winner = p1Owned == p2Owned ? (_votes.P1 >= 50 ? 1 : 2) : (p1Owned > p2Owned ? 1 : 2);
-            Debug.Log($"Game Over. Tiles P1={p1Owned} P2={p2Owned}. Winner: P{winner}");
-            // TODO: end screen
-        }
-
         private void Transition(GameState s)
         {
             State = s;
@@ -245,5 +241,81 @@ namespace GameControllers
         }
 
         private static TileOwner ToOwner(int p) => p == 1 ? TileOwner.P1 : TileOwner.P2;
+
+        
+        
+        private void EndGame()
+        {
+            int p1Owned = grid.CountOwned(TileOwner.P1);
+            int p2Owned = grid.CountOwned(TileOwner.P2);
+            int winnerIndex = p1Owned == p2Owned ? (_votes.P1 >= 50 ? 1 : 2) : (p1Owned > p2Owned ? 1 : 2);
+            var winnerOwner = ToOwner(winnerIndex);
+
+            // stop accepting inputs
+            ClearTargets();
+            Transition(GameState.Ending);
+
+            StartCoroutine(AnimateVictorySweep(winnerOwner, winnerIndex, p1Owned, p2Owned));
+        }
+
+
+        private IEnumerator AnimateVictorySweep(TileOwner winner, int winnerIndex, int p1Owned, int p2Owned) 
+        {
+            var tiles = new List<Tile>(grid.AllTiles);
+            
+            Vector3 focus = Vector3.zero;
+            int count = 0;
+            if (gameConfig.focusFromWinnerRegion)
+            {
+                foreach (var t in tiles)
+                {
+                    if (t.Owner == winner)
+                    {
+                        focus += t.transform.position;
+                        count++;
+                    }
+                }
+            }
+            if (count == 0) { focus = ComputeCenter(tiles); }
+            else            { focus /= count; }
+
+            tiles.Sort((a, b) =>
+            {
+                float da = (a.transform.position - focus).sqrMagnitude;
+                float db = (b.transform.position - focus).sqrMagnitude;
+                return da.CompareTo(db);
+            });
+
+            int n = tiles.Count;
+            float total = Mathf.Max(0.1f, gameConfig.endAnimDuration);
+            float step = Mathf.Max(0.01f, total / Mathf.Max(1, n));
+
+            for (int i = 0; i < n; i++)
+            {
+                var t = tiles[i];
+
+                if (t.Owner != winner)
+                {
+                    grid.MarkBuilt(t, winner);
+                }
+
+                yield return new WaitForSeconds(step);
+            }
+
+            Transition(GameState.Ended);
+
+            Debug.Log($"Game Over. Tiles P1={p1Owned} P2={p2Owned}. Winner: P{winnerIndex}");
+            // TODO: Show an end-screen
+        }
+
+        private static Vector3 ComputeCenter(List<Tile> tiles)
+        {
+            if (tiles == null || tiles.Count == 0) return Vector3.zero;
+            Vector3 acc = Vector3.zero;
+            foreach (var t in tiles) acc += t.transform.position;
+            return acc / tiles.Count;
+        }
+                
+        
     }
 }

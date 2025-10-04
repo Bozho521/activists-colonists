@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SpecialActionsCard_HoverAnimation : MonoBehaviour
 {
-    [SerializeField] private Animator _animator;
+    private Animator _animator;
 
     private void Start()
     {
@@ -12,7 +12,6 @@ public class SpecialActionsCard_HoverAnimation : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        Debug.Log("Mouse Enter");
         _animator.SetInteger("PlayerHover", 1);
     }
 
