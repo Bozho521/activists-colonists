@@ -2,8 +2,18 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    void OnDestroy()
+    public GameObject replacementPrefab;
+
+    public void Replace()
     {
-        Debug.Log(gameObject.name + " was destroyed!");
+        if (replacementPrefab != null)
+        {
+            Instantiate(replacementPrefab, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log(gameObject.name + " has no replacement prefab set!");
+        }
     }
 }
