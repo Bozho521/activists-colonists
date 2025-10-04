@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Data;
 using UnityEngine;
 using Enums;
+using Mono.Cecil;
 
 namespace Tiles
 {
@@ -15,8 +16,7 @@ namespace Tiles
 
         [Tooltip("Assign neighbor tiles here (6 max for hex).")]
         [SerializeField] private List<Tile> neighbors = new List<Tile>();
-
-        // Runtime
+        
         private Renderer _renderer;
         public TileOwner Owner => owner;
         public bool IsBuildable => buildable;
@@ -29,8 +29,11 @@ namespace Tiles
             ApplyVisual();
         }
 
-        internal void Bind(HexGridManager grid) { /* kept for parity, no-op is fine */ }
-
+        internal void Bind(HexGridManager grid)
+        {
+            
+        }
+        
         public void SetOwner(TileOwner newOwner)
         {
             if (owner == newOwner) return;
@@ -41,23 +44,27 @@ namespace Tiles
         public void SetBuildable(bool value)
         {
             buildable = value;
-            // Optional: dim/outline, etc.
+            // TODO: dim/outline, etc.
         }
+        
+        public void ApplyVisualTile(GameObject tilePrefab)
+        {
+            var go = Instantiate(tilePrefab, transform);
+            go.transform.localPosition = Vector3.zero;
+            go.transform.localScale    = Vector3.one;
+            go.transform.localRotation = Quaternion.Euler(180f, 0f, 0f);
+        }
+
 
         private void ApplyVisual()
         {
             if (_renderer == null || config == null) return;
-            var mat = owner switch
-            {
-                TileOwner.P1 => config.p1OwnedMat,
-                TileOwner.P2 => config.p2OwnedMat,
-                _ => config.neutralMat
-            };
-            if (mat) _renderer.sharedMaterial = mat;
+            var mat = config.neutralMat;
+            if (mat)
+                _renderer.sharedMaterial = mat;
         }
 
 #if UNITY_EDITOR
-        // Editor helpers
         public void Editor_SetNeighbors(List<Tile> list)
         {
             neighbors = list;

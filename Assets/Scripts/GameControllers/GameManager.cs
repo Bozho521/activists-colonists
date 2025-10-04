@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Data;
 using Enums;
 using Player;
 using Tiles;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace GameControllers
 {
@@ -21,14 +23,15 @@ namespace GameControllers
         [SerializeField] private TurnBannerUI turnUI;
         // TODO: hook an action selection UI later that calls SelectAction(...)
 
+        [SerializeField]private ActionMode currentAction = ActionMode.BasicBuild;
+        
+        
         public GameState State { get; private set; } = GameState.Boot;
         public int ActivePlayer { get; private set; } = 1; // 1 or 2
 
         private VoteManager _votes;
         private PlayerState[] _players;
 
-        // --- Action selection/targeting ---
-        private ActionMode _currentAction = ActionMode.BasicBuild;
         private readonly List<Tile> _pendingTargets = new();
         private int _requiredTargets = 1;
         private int _actionCost = 0;
@@ -46,7 +49,7 @@ namespace GameControllers
             );
             _votes.OnVoteChanged += (p1, p2) => voteBar?.SetVotes(p1, p2, gameConfig.uiTweenSeconds);
 
-            _players = new[] { null, new PlayerState(1), new PlayerState(2) }; // index by 1/2
+            _players = new[] { null, new PlayerState(1), new PlayerState(2) }; // index by `1/2`
         }
 
         private void Start()
@@ -54,7 +57,6 @@ namespace GameControllers
             grid.IndexExistingTiles();
             voteBar?.SetVotes(_votes.P1, 100 - _votes.P1, 0f);
 
-            // first active player by weighted vote
             ActivePlayer = _votes.RollWinner();
             BeginTurn();
         }
@@ -86,7 +88,6 @@ namespace GameControllers
 
         private void EndTurn()
         {
-            // next active player chosen by weighted vote again
             ActivePlayer = _votes.RollWinner();
 
             if (!grid.HasAvailableBuildableTiles())
@@ -105,7 +106,7 @@ namespace GameControllers
             var tile = hit.collider.GetComponentInParent<Tile>();
             if (tile == null) return;
 
-            if (_pendingTargets.Contains(tile)) return; // avoid duplicates
+            if (_pendingTargets.Contains(tile)) return;
             if (!IsTileValidForCurrentAction(tile)) return;
 
             _pendingTargets.Add(tile);
@@ -116,7 +117,7 @@ namespace GameControllers
 
         private void SelectAction(ActionMode mode)
         {
-            _currentAction = mode;
+            currentAction = mode;
             ClearTargets();
 
             switch (mode)
@@ -146,7 +147,7 @@ namespace GameControllers
         private bool IsTileValidForCurrentAction(Tile tile)
         {
             var owner = ToOwner(ActivePlayer);
-            return _currentAction switch
+            return currentAction switch
             {
                 ActionMode.BasicBuild      => grid.CanBuildAdjacent(tile, owner),
                 ActionMode.BuildTwo        => grid.CanBuildAdjacent(tile, owner),
@@ -166,7 +167,6 @@ namespace GameControllers
                 return;
             }
 
-            // Validate all selected tiles again atomically (no partials)
             foreach (var t in _pendingTargets)
                 if (!IsTileValidForCurrentAction(t))
                 {
@@ -175,7 +175,6 @@ namespace GameControllers
                     return;
                 }
 
-            // Spend
             if (!me.TrySpend(_actionCost))
             {
                 Debug.Log("Point spend failed race.");
@@ -185,10 +184,9 @@ namespace GameControllers
 
             Transition(GameState.Resolving);
 
-            // Execute
             int builtCount = 0;
 
-            switch (_currentAction)
+            switch (currentAction)
             {
                 case ActionMode.BasicBuild:
                 case ActionMode.BuildTwo:
@@ -204,13 +202,12 @@ namespace GameControllers
                 {
                     var t = _pendingTargets[0];
                     t.SetOwner(ToOwner(ActivePlayer));
-                    // keep it buildable=false once owned (your rules can vary)
+                    // keep it buildable=false once owned (rules can vary)
                     t.SetBuildable(false);
                 }
                     break;
             }
 
-            // Vote shift per tile built (skip for takeover unless you want it)
             if (builtCount > 0 && gameConfig.voteDeltaPerBuild != 0)
             {
                 int delta = (ActivePlayer == 1 ? +1 : -1) * (gameConfig.voteDeltaPerBuild * builtCount);

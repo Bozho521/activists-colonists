@@ -1,6 +1,9 @@
+using System;
 using System.Collections.Generic;
+using Data;
 using UnityEngine;
 using Enums;
+using Random = UnityEngine.Random;
 
 namespace Tiles
 {
@@ -8,6 +11,8 @@ namespace Tiles
     {
         private readonly List<Tile> _tiles = new();
         public IEnumerable<Tile> AllTiles => _tiles;
+        
+        [SerializeField] private HexGridConfig hexGridConfig;
 
         public void IndexExistingTiles()
         {
@@ -76,6 +81,30 @@ namespace Tiles
         {
             tile.SetOwner(owner);
             tile.SetBuildable(false);
+            var tilePref = PickRandomVisual(owner);
+            tile.ApplyVisualTile(tilePref);
+        }
+        
+        private GameObject PickRandomVisual(TileOwner owner)
+        {
+            var tileList = owner switch
+            {
+
+                TileOwner.None => hexGridConfig.tiles,
+                TileOwner.P1 => hexGridConfig.activistsTiles,
+                TileOwner.P2 => hexGridConfig.capitalistsTiles,
+                _ => null,
+            };
+
+            if (tileList.Count == 0)
+            {
+                Debug.LogError("Tile contains no tiles.");
+                return null;
+            }
+            
+            var max =  tileList.Count ;
+            var newTileIndex = Random.Range(0, max);
+            return tileList[newTileIndex];
         }
     }
 }
