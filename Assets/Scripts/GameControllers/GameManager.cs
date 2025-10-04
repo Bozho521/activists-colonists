@@ -19,7 +19,7 @@ namespace GameControllers
         [SerializeField] private GameConfig gameConfig;
 
         [Header("UI")]
-        [SerializeField] private VoteBarUI voteBar;
+        //[SerializeField] private VoteBarUI voteBar;
         [SerializeField] private TurnBannerUI turnUI;
         // TODO: hook an action selection UI later that calls SelectAction(...)
 
@@ -47,7 +47,7 @@ namespace GameControllers
                 gameConfig.startVoteP1,
                 gameConfig.deterministic ? gameConfig.rngSeed : (int?)null
             );
-            _votes.OnVoteChanged += (p1, p2) => voteBar?.SetVotes(p1, p2, gameConfig.uiTweenSeconds);
+           // _votes.OnVoteChanged += (p1, p2) => voteBar?.SetVotes(p1, p2, gameConfig.uiTweenSeconds);
 
             _players = new[] { null, new PlayerState(1), new PlayerState(2) }; // index by `1/2`
         }
@@ -55,9 +55,11 @@ namespace GameControllers
         private void Start()
         {
             grid.IndexExistingTiles();
-            voteBar?.SetVotes(_votes.P1, 100 - _votes.P1, 0f);
+            //voteBar?.SetVotes(_votes.P1, 100 - _votes.P1, 0f);
 
             ActivePlayer = _votes.RollWinner();
+            Debug.Log("active player is :" + ActivePlayer);
+            
             BeginTurn();
         }
 
@@ -90,6 +92,10 @@ namespace GameControllers
         {
             ActivePlayer = _votes.RollWinner();
 
+            Debug.Log("active player is :" + ActivePlayer);
+            Debug.Log("active player stats :" + _players[ActivePlayer].Points);
+
+
             if (!grid.HasAvailableBuildableTiles())
             {
                 EndGame();
@@ -109,6 +115,7 @@ namespace GameControllers
             if (_pendingTargets.Contains(tile)) return;
             if (!IsTileValidForCurrentAction(tile)) return;
 
+            Debug.Log("_pendingTargets"+ _pendingTargets);
             _pendingTargets.Add(tile);
 
             if (_pendingTargets.Count >= _requiredTargets)
@@ -159,6 +166,7 @@ namespace GameControllers
 
         private void TryExecuteCurrentAction()
         {
+            Debug.Log("Player "+ ActivePlayer + " trying to execute current action");
             var me = _players[ActivePlayer];
             if (me.Points < _actionCost)
             {
@@ -201,9 +209,10 @@ namespace GameControllers
                 case ActionMode.TakeOver:
                 {
                     var t = _pendingTargets[0];
-                    t.SetOwner(ToOwner(ActivePlayer));
-                    // keep it buildable=false once owned (rules can vary)
-                    t.SetBuildable(false);
+                    //t.SetOwner(ToOwner(ActivePlayer));
+                    //t.SetBuildable(false); 
+                    grid.MarkBuilt(t, ToOwner(ActivePlayer));
+                    
                 }
                     break;
             }
