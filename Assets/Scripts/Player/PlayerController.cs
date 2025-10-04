@@ -1,3 +1,4 @@
+using Enums;
 using Tiles;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,14 +7,18 @@ namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField] private HexGridManager hexGridManager;
         public float rayDistance = 100f;
         private Camera playerCamera;
+
+        [SerializeField] private TileOwner inputTileOwner;
 
         private Tile hoveredTile;
         private Vector3 originalScale;
 
         void Start()
         {
+            
             playerCamera = Camera.main;
             if (playerCamera == null)
             {
@@ -32,21 +37,20 @@ namespace Player
             {
                 Tile tile = hit.collider.GetComponent<Tile>();
 
-                if (tile != null)
-                {
-                    if (tile != hoveredTile)
-                    {
-                        ResetHoveredTile();
-
-                        hoveredTile = tile;
-                        originalScale = hoveredTile.transform.localScale;
-                        hoveredTile.transform.localScale = originalScale * 1.1f;
-                    }
-                }
-                else
+                if (tile == null)
                 {
                     ResetHoveredTile();
                 }
+                
+                if (tile != hoveredTile)
+                {
+                    ResetHoveredTile();
+
+                    hoveredTile = tile;
+                    originalScale = hoveredTile.transform.localScale;
+                    hoveredTile.transform.localScale = originalScale * 1.1f;
+                }
+                
             }
             else
             {
@@ -55,11 +59,18 @@ namespace Player
 
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
-                if (hoveredTile != null)
+                if (hoveredTile == null) return;
+
+                hexGridManager.MarkBuilt(hoveredTile, inputTileOwner);
+                hoveredTile = null;
+                
+                if (TryGetComponent<Tile>(out var tile))
                 {
-                    hoveredTile.Replace();
-                    hoveredTile = null;
+                    if (!tile.IsBuildable) return;
+                    
+                    
                 }
+                
             }
         }
 

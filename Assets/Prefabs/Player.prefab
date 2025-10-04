@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d712ce2970010c74187547c5570afe65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerController
+  hexGridManager: {fileID: 0}
   rayDistance: 50
+  inputTileOwner: 1

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Data;
 using UnityEngine;
 using Enums;
+using Mono.Cecil;
 
 namespace Tiles
 {
@@ -15,9 +16,7 @@ namespace Tiles
 
         [Tooltip("Assign neighbor tiles here (6 max for hex).")]
         [SerializeField] private List<Tile> neighbors = new List<Tile>();
-
-        public GameObject replacementPrefab;
-
+        
         private Renderer _renderer;
         public TileOwner Owner => owner;
         public bool IsBuildable => buildable;
@@ -34,7 +33,7 @@ namespace Tiles
         {
             
         }
-
+        
         public void SetOwner(TileOwner newOwner)
         {
             if (owner == newOwner) return;
@@ -47,30 +46,22 @@ namespace Tiles
             buildable = value;
             // TODO: dim/outline, etc.
         }
+        
+        public void ApplyVisualTile(GameObject tilePrefab)
+        {
+            var go = Instantiate(tilePrefab, transform);
+            go.transform.localPosition = Vector3.zero;
+            go.transform.localScale    = Vector3.one;
+            go.transform.localRotation = Quaternion.Euler(180f, 0f, 0f);
+        }
+
 
         private void ApplyVisual()
         {
             if (_renderer == null || config == null) return;
-            var mat = owner switch
-            {
-                TileOwner.P1 => config.p1OwnedMat,
-                TileOwner.P2 => config.p2OwnedMat,
-                _ => config.neutralMat
-            };
-            if (mat) _renderer.sharedMaterial = mat;
-        }
-
-        public void Replace()
-        {
-            if (replacementPrefab != null)
-            {
-                Instantiate(replacementPrefab, transform.position, transform.rotation);
-                Destroy(gameObject);
-            }
-            else
-            {
-                Debug.Log(gameObject.name + " has no replacement prefab set!");
-            }
+            var mat = config.neutralMat;
+            if (mat)
+                _renderer.sharedMaterial = mat;
         }
 
 #if UNITY_EDITOR

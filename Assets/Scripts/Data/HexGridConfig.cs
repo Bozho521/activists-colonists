@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 
 namespace Data
@@ -6,8 +8,12 @@ namespace Data
     public class HexGridConfig : ScriptableObject
     {
         public int radius = 6; 
-        public GameObject tilePrefab;
         public TileConfig defaultTileType;
         public float tileSize = 1f;
+        
+        
+        public List<GameObject> tiles;
+        public List<GameObject> capitalistsTiles;
+        public List<GameObject> activistsTiles;
     }
 }
