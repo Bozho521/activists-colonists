@@ -19,7 +19,7 @@ namespace GameControllers
         [SerializeField] private GameConfig gameConfig;
 
         [Header("UI")]
-        //[SerializeField] private VoteBarUI voteBar;
+        [SerializeField] private VoteBarUI voteBar;
         [SerializeField] private TurnBannerUI turnUI;
         // TODO: hook an action selection UI later that calls SelectAction(...)
 
@@ -47,7 +47,7 @@ namespace GameControllers
                 gameConfig.startVoteP1,
                 gameConfig.deterministic ? gameConfig.rngSeed : (int?)null
             );
-           // _votes.OnVoteChanged += (p1, p2) => voteBar?.SetVotes(p1, p2, gameConfig.uiTweenSeconds);
+            _votes.OnVoteChanged += (p1, p2) => voteBar?.SetVotes(p1, p2);
 
             _players = new[] { null, new PlayerState(1), new PlayerState(2) }; // index by `1/2`
         }
@@ -55,7 +55,7 @@ namespace GameControllers
         private void Start()
         {
             grid.IndexExistingTiles();
-            //voteBar?.SetVotes(_votes.P1, 100 - _votes.P1, 0f);
+            voteBar?.SetVotes(_votes.P1, 100 - _votes.P1);
 
             ActivePlayer = _votes.RollWinner();
             Debug.Log("active player is :" + ActivePlayer);
