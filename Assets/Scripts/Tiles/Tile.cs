@@ -16,6 +16,8 @@ namespace Tiles
         [Tooltip("Assign neighbor tiles here (6 max for hex).")]
         [SerializeField] private List<Tile> neighbors = new List<Tile>();
 
+        public GameObject replacementPrefab;
+
         private Renderer _renderer;
         public TileOwner Owner => owner;
         public bool IsBuildable => buildable;
@@ -56,6 +58,19 @@ namespace Tiles
                 _ => config.neutralMat
             };
             if (mat) _renderer.sharedMaterial = mat;
+        }
+
+        public void Replace()
+        {
+            if (replacementPrefab != null)
+            {
+                Instantiate(replacementPrefab, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.Log(gameObject.name + " has no replacement prefab set!");
+            }
         }
 
 #if UNITY_EDITOR
