@@ -1387,6 +1387,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4788664654461371581, guid: 476cea9bdf1de664c9a6b450d5b5c164, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 426583275}
     - target: {fileID: 7453256944583141430, guid: 476cea9bdf1de664c9a6b450d5b5c164, type: 3}
       propertyPath: grid
       value: 
