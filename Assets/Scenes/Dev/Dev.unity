@@ -498,29 +498,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 109903634229373946, guid: d76e2025626b1fa4c834a2b8b6020c70, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1367430225}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d76e2025626b1fa4c834a2b8b6020c70, type: 3}
---- !u!1 &1367430224 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 109903634229373946, guid: d76e2025626b1fa4c834a2b8b6020c70, type: 3}
-  m_PrefabInstance: {fileID: 1367430223}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1367430225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367430224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d712ce2970010c74187547c5570afe65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerController
-  rayDistance: 50
 --- !u!1 &1800668977
 GameObject:
   m_ObjectHideFlags: 0
