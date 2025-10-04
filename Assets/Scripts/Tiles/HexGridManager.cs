@@ -106,5 +106,22 @@ namespace Tiles
             var newTileIndex = Random.Range(0, max);
             return tileList[newTileIndex];
         }
+
+        public void KaboomBoom()
+        {
+            Debug.Log("[HexGridManager] Kaboom Boom! Clearing all tiles...");
+
+            foreach (var tile in _tiles)
+            {
+                tile.SetOwner(TileOwner.None);
+
+                tile.SetBuildable(true);
+
+                tile.ClearVisual();
+            }
+
+            Debug.Log("[HexGridManager] All tiles cleared.");
+        }
+
     }
 }

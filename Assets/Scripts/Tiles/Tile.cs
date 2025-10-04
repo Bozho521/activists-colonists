@@ -70,6 +70,17 @@ namespace Tiles
                 _renderer.sharedMaterial = mat;
         }
 
+        public void ClearVisual()
+        {
+            if (currentGraphics != null && currentGraphics.transform.childCount > 0)
+            {
+                for (int i = currentGraphics.transform.childCount - 1; i >= 0; i--)
+                {
+                    Destroy(currentGraphics.transform.GetChild(i).gameObject);
+                }
+            }
+        }
+
 #if UNITY_EDITOR
         public void Editor_SetNeighbors(List<Tile> list)
         {

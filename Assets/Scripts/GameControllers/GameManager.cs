@@ -76,6 +76,7 @@ namespace GameControllers
             if (Keyboard.current.digit2Key.wasPressedThisFrame) SelectAction(ActionMode.BuildTwo);
             if (Keyboard.current.digit3Key.wasPressedThisFrame) SelectAction(ActionMode.BuildAnywhere);
             if (Keyboard.current.digit4Key.wasPressedThisFrame) SelectAction(ActionMode.TakeOver);
+            if (Keyboard.current.digit5Key.wasPressedThisFrame) SelectAction(ActionMode.KaboomBoom);
 
             if (Mouse.current.leftButton.wasPressedThisFrame)
                 HandleClick();
@@ -146,6 +147,9 @@ namespace GameControllers
                 case ActionMode.TakeOver:
                     _requiredTargets = 1;
                     _actionCost = gameConfig.cost_TakeOver;
+                    break;
+                case ActionMode.KaboomBoom:
+                    grid.KaboomBoom();
                     break;
             }
             // TODO: update UI to show selected action & cost & available points
