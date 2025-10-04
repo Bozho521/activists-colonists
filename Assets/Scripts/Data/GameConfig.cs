@@ -1,5 +1,3 @@
-// GameConfig.cs
-
 using UnityEngine;
 
 namespace Data
@@ -16,8 +14,13 @@ namespace Data
         public int cost_BuildTwo = 2;
         public int cost_BuildAnywhere = 3;
         public int cost_TakeOver = 4;
+        
+        [Header("Votes")]
+        [Range(0,50)] public int minVotePercent = 10;
+        public int voteDeltaPerBuild = 5;
 
-        [Header("Effects")]
-        public int voteDeltaPerBuild = 5; // +5 for actor means -5 for opponent
+        [Header("End Animation")]
+        public float endAnimDuration = 1.5f;
+        public bool focusFromWinnerRegion = true; 
     }
 }
