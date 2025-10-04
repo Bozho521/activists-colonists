@@ -1,11 +1,19 @@
-using Data;
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Config/Hex Grid", fileName = "HexGridConfig")]
-public class HexGridConfig : ScriptableObject
+namespace Data
 {
-    public int radius = 6; 
-    public GameObject tilePrefab;
-    public TileConfig defaultTileType;
-    public float tileSize = 1f;
+    [CreateAssetMenu(menuName = "Config/Hex Grid", fileName = "HexGridConfig")]
+    public class HexGridConfig : ScriptableObject
+    {
+        public int radius = 6; 
+        public TileConfig defaultTileType;
+        public float tileSize = 1f;
+        
+        
+        public List<GameObject> tiles;
+        public List<GameObject> capitalistsTiles;
+        public List<GameObject> activistsTiles;
+    }
 }
