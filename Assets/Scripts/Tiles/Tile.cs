@@ -16,7 +16,6 @@ namespace Tiles
         [Tooltip("Assign neighbor tiles here (6 max for hex).")]
         [SerializeField] private List<Tile> neighbors = new List<Tile>();
 
-        // Runtime
         private Renderer _renderer;
         public TileOwner Owner => owner;
         public bool IsBuildable => buildable;
@@ -29,7 +28,10 @@ namespace Tiles
             ApplyVisual();
         }
 
-        internal void Bind(HexGridManager grid) { /* kept for parity, no-op is fine */ }
+        internal void Bind(HexGridManager grid)
+        {
+            
+        }
 
         public void SetOwner(TileOwner newOwner)
         {
@@ -41,7 +43,7 @@ namespace Tiles
         public void SetBuildable(bool value)
         {
             buildable = value;
-            // Optional: dim/outline, etc.
+            // TODO: dim/outline, etc.
         }
 
         private void ApplyVisual()
@@ -57,7 +59,6 @@ namespace Tiles
         }
 
 #if UNITY_EDITOR
-        // Editor helpers
         public void Editor_SetNeighbors(List<Tile> list)
         {
             neighbors = list;
