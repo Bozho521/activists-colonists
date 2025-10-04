@@ -13,6 +13,7 @@ namespace Tiles
         [SerializeField] private TileConfig config;
         [SerializeField] private TileOwner owner = TileOwner.None;
         [SerializeField] private bool buildable = true;
+        [SerializeField] private GameObject currentGraphics;
 
         [Tooltip("Assign neighbor tiles here (6 max for hex).")]
         [SerializeField] private List<Tile> neighbors = new List<Tile>();
@@ -49,7 +50,12 @@ namespace Tiles
         
         public void ApplyVisualTile(GameObject tilePrefab)
         {
-            var go = Instantiate(tilePrefab, transform);
+            if (currentGraphics.transform.childCount > 0)
+            {
+                Destroy(currentGraphics.transform.GetChild(0).gameObject);
+            }
+            
+            var go = Instantiate(tilePrefab, currentGraphics.transform);
             go.transform.localPosition = Vector3.zero;
             go.transform.localScale    = Vector3.one;
             go.transform.localRotation = Quaternion.Euler(180f, 0f, 0f);

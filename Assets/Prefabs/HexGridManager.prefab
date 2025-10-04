@@ -30,6 +30,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2530093124842115581}
+  - {fileID: 4148311752708013161}
   - {fileID: 7786256704848799281}
   - {fileID: 8350517299605403030}
   - {fileID: 2741772504534771603}
@@ -55,10 +57,8 @@ Transform:
   - {fileID: 6856158482133143505}
   - {fileID: 1422183538676331112}
   - {fileID: 5942267171762366655}
-  - {fileID: 2530093124842115581}
   - {fileID: 4541786261041977001}
   - {fileID: 2410371192768065865}
-  - {fileID: 4148311752708013161}
   - {fileID: 8180343811539455661}
   - {fileID: 4863174856695403428}
   - {fileID: 3710597761931483102}
@@ -1105,6 +1105,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tile
+--- !u!1001 &1648890187418098376
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2530093124842115581}
+    m_Modifications:
+    - target: {fileID: 6963979201979444194, guid: cb2b9584b98114e7398401559e4f3228, type: 3}
+      propertyPath: m_Name
+      value: Hexagon_Capitalist
+      objectReference: {fileID: 0}
+    - target: {fileID: 7777389466381005144, guid: cb2b9584b98114e7398401559e4f3228, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7777389466381005144, guid: cb2b9584b98114e7398401559e4f3228, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7777389466381005144, guid: cb2b9584b98114e7398401559e4f3228, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7777389466381005144, guid: cb2b9584b98114e7398401559e4f3228, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7777389466381005144, guid: cb2b9584b98114e7398401559e4f3228, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7777389466381005144, guid: cb2b9584b98114e7398401559e4f3228, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7777389466381005144, guid: cb2b9584b98114e7398401559e4f3228, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7777389466381005144, guid: cb2b9584b98114e7398401559e4f3228, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7777389466381005144, guid: cb2b9584b98114e7398401559e4f3228, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7777389466381005144, guid: cb2b9584b98114e7398401559e4f3228, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 3.5527137e-15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7777389466381005144, guid: cb2b9584b98114e7398401559e4f3228, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7777389466381005144, guid: cb2b9584b98114e7398401559e4f3228, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7777389466381005144, guid: cb2b9584b98114e7398401559e4f3228, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cb2b9584b98114e7398401559e4f3228, type: 3}
+--- !u!4 &9010821461600889744 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7777389466381005144, guid: cb2b9584b98114e7398401559e4f3228, type: 3}
+  m_PrefabInstance: {fileID: 1648890187418098376}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1992688176133153423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1506,7 +1580,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1011230742576928411, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_Name
-      value: Krystof_hexagon (33)
+      value: Krystof_hexagon (P2 start)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: owner
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: neighbors.Array.size
@@ -1530,7 +1608,10 @@ PrefabInstance:
       objectReference: {fileID: 4111657335102163728}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9010821461600889744}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
 --- !u!4 &2530093124842115581 stripped
@@ -1775,6 +1856,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ecba28d62a2934c9fe8764f64c67c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tile
+--- !u!1001 &2923618346008172175
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4148311752708013161}
+    m_Modifications:
+    - target: {fileID: 7064584646760878028, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064584646760878028, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064584646760878028, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064584646760878028, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064584646760878028, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064584646760878028, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064584646760878028, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064584646760878028, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064584646760878028, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064584646760878028, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 3.5527137e-15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064584646760878028, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064584646760878028, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064584646760878028, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584522342931109238, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
+      propertyPath: m_Name
+      value: Hexagon_Activist
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
+--- !u!4 &5375245352620104003 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7064584646760878028, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
+  m_PrefabInstance: {fileID: 2923618346008172175}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3421183256665942397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2491,7 +2646,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1011230742576928411, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_Name
-      value: Krystof_hexagon (23)
+      value: Krystof_hexagon (P1 Start)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: owner
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: neighbors.Array.size
@@ -2511,7 +2670,10 @@ PrefabInstance:
       objectReference: {fileID: 7189313806021191216}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 503202258149247889, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5375245352620104003}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
 --- !u!4 &4148311752708013161 stripped
@@ -3368,6 +3530,10 @@ PrefabInstance:
     - target: {fileID: 1011230742576928411, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: m_Name
       value: Krystof_hexagon (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
+      propertyPath: owner
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7891183700448225342, guid: ed0e999ebc4f3f24f9d037d46b95e28f, type: 3}
       propertyPath: neighbors.Array.size

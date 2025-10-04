@@ -52,7 +52,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hexagon_Activist_v2 Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7064584646760878028, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
