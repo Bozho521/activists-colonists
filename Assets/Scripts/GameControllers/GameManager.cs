@@ -1,16 +1,51 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+namespace GameControllers
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class GameManager : MonoBehaviour
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
         
+        public enum GameState
+        {
+            Playing,
+            Paused
+        }
+
+        [Header("Players")] [SerializeField] private List<PlayerController> players; 
+        
+
+        [Header("HexGrid")]
+        [SerializeField] private HexGridManager hexGridManager;
+        
+
+        [Header("Vote Stats")]
+        [SerializeField] private int increasePerTile;
+        private VoteManager _voteManager;
+        
+
+        private void Awake()
+        {
+            _voteManager = new VoteManager();
+            
+        }
+
+
+        private void Start()
+        {
+            if (players.Count < 1)
+            {
+                Debug.LogError("No players found");
+            }
+        }
+
+        
+        
+        void Update()
+        {
+        
+        }
     }
 }
