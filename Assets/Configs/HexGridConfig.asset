@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa574757dbae4bb3a222ddd229204588, type: 3}
+  m_Name: HexGridConfig
+  m_EditorClassIdentifier: Assembly-CSharp::HexGridConfig
+  radius: 6
+  defaultTileType: {fileID: 11400000, guid: e898cfbac666ab544a2cff0febba837f, type: 2}
+  tileSize: 1
+  tiles:
+  - {fileID: 4764380658070820825, guid: 010884d85bec04c8b87118362f6622bf, type: 3}
+  capitalistsTiles:
+  - {fileID: 6963979201979444194, guid: cb2b9584b98114e7398401559e4f3228, type: 3}
+  - {fileID: 1386743521392068748, guid: 084c5176f0037431a9b0418acdb39a3d, type: 3}
+  - {fileID: 8630950753862244936, guid: a1820b6266a914c0791c2e8c49c500d8, type: 3}
+  - {fileID: 9168578967119853319, guid: 1a8eda31696594c0cb4604fa02fd9153, type: 3}
+  activistsTiles:
+  - {fileID: 7584522342931109238, guid: ae69682a857cc40b8a30854fe7af87a1, type: 3}
+  - {fileID: 8071503747448901920, guid: 839080aba2732446d9541bed2e1a2977, type: 3}
+  - {fileID: 8681147146934781813, guid: 0c9ba29e58c6d47fab98d7b0e941c6ed, type: 3}
+  - {fileID: 8444117648912620052, guid: 55a961c1117c44b228180588289668cc, type: 3}
