@@ -57,7 +57,7 @@ namespace Tiles
             
             var go = Instantiate(tilePrefab, currentGraphics.transform);
             go.transform.localPosition = Vector3.zero;
-            go.transform.localScale    = Vector3.one;
+            go.transform.localScale = Vector3.one * 1.01f;
             go.transform.localRotation = Quaternion.Euler(180f, 0f, 0f);
         }
 
