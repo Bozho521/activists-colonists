@@ -1,6 +1,11 @@
 fileFormatVersion: 2
-guid: ca51de32666a2ec4faddc5bf53054c3c
+<<<<<<<< HEAD:Assets/Prefabs/Player.prefab.meta
+guid: d76e2025626b1fa4c834a2b8b6020c70
 PrefabImporter:
+========
+guid: 764cb40a2579741369a1d0f53084037a
+DefaultImporter:
+>>>>>>>> main:Assets/Scenes/GameScene.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
