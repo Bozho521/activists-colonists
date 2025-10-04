@@ -7,6 +7,7 @@ using Tiles;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace GameControllers
 {
@@ -22,13 +23,15 @@ namespace GameControllers
         [SerializeField] private TurnBannerUI turnUI;
         // TODO: hook an action selection UI later that calls SelectAction(...)
 
+        [SerializeField]private ActionMode currentAction = ActionMode.BasicBuild;
+        
+        
         public GameState State { get; private set; } = GameState.Boot;
         public int ActivePlayer { get; private set; } = 1; // 1 or 2
 
         private VoteManager _votes;
         private PlayerState[] _players;
 
-        private ActionMode _currentAction = ActionMode.BasicBuild;
         private readonly List<Tile> _pendingTargets = new();
         private int _requiredTargets = 1;
         private int _actionCost = 0;
@@ -114,7 +117,7 @@ namespace GameControllers
 
         private void SelectAction(ActionMode mode)
         {
-            _currentAction = mode;
+            currentAction = mode;
             ClearTargets();
 
             switch (mode)
@@ -144,7 +147,7 @@ namespace GameControllers
         private bool IsTileValidForCurrentAction(Tile tile)
         {
             var owner = ToOwner(ActivePlayer);
-            return _currentAction switch
+            return currentAction switch
             {
                 ActionMode.BasicBuild      => grid.CanBuildAdjacent(tile, owner),
                 ActionMode.BuildTwo        => grid.CanBuildAdjacent(tile, owner),
@@ -183,7 +186,7 @@ namespace GameControllers
 
             int builtCount = 0;
 
-            switch (_currentAction)
+            switch (currentAction)
             {
                 case ActionMode.BasicBuild:
                 case ActionMode.BuildTwo:
