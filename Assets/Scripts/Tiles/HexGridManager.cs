@@ -114,7 +114,7 @@ namespace Tiles
                 Debug.LogWarning("[Kaboom] No center tile provided!");
                 return;
             }
-
+            
             List<Tile> toDestroy = new List<Tile> { centerTile };
             var neighbors = new List<Tile>(GetNeighbors(centerTile));
 

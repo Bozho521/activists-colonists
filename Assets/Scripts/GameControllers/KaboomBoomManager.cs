@@ -1,11 +1,20 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Tiles;
 
 public class KaboomBoomManager : MonoBehaviour
 {
     [SerializeField] private HexGridManager hexGridManager;
+    private AudioSource audioSource;
+    [SerializeField] private GameObject smokeEffect;
+    [SerializeField] private GameObject explosionEffect;
     private bool isArmed = false;
     private bool used = false;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnMouseDown()
     {
@@ -41,6 +50,11 @@ public class KaboomBoomManager : MonoBehaviour
         if (tile == null) return;
 
         hexGridManager.TriggerKaboom(tile);
+        
+        audioSource.Play();
+        smokeEffect.SetActive(true);
+        explosionEffect.SetActive(true);
+        
         used = true;
         isArmed = false;
     }
