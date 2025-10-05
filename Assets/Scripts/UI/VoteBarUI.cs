@@ -1,39 +1,38 @@
-using System.Collections;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace UI
 {
     public class VoteBarUI : MonoBehaviour
     {
-        [SerializeField] private Image p1Fill;
-        [SerializeField] private Image p2Fill;
+        [Header("Human References (8 total)")]
+        [SerializeField] private List<MeshRenderer> humans;
 
-        public void SetVotes(int p1, int p2, float tweenSeconds)
+        [Header("Materials")]
+        [SerializeField] private Material p1Material;
+        [SerializeField] private Material p2Material;
+
+        private const int TotalHumans = 8;
+
+        public void SetVotes(int p1Percent, int p2Percent)
         {
-            StopAllCoroutines();
-            StartCoroutine(TweenVotes(p1, p2, tweenSeconds));
-        }
+            p1Percent = Mathf.Clamp(p1Percent, 10, 90);
+            p2Percent = Mathf.Clamp(p2Percent, 10, 90);
 
-        private IEnumerator TweenVotes(int p1, int p2, float t)
-        {
-            float start1 = p1Fill.fillAmount;
-            float start2 = p2Fill.fillAmount;
-            float end1 = Mathf.Clamp01(p1 / 100f);
-            float end2 = Mathf.Clamp01(p2 / 100f);
+            float normalized = Mathf.InverseLerp(10f, 90f, p1Percent);
+            int p1Count = Mathf.RoundToInt(normalized * TotalHumans);
 
-            float e = Mathf.Max(0f, t);
-            float elapsed = 0f;
-            while (elapsed < e)
+            int p2Count = TotalHumans - p1Count;
+
+            Debug.Log($"[VoteBar] P1={p1Percent}% ({p1Count} humans), P2={p2Percent}% ({p2Count} humans)");
+
+            for (int i = 0; i < TotalHumans; i++)
             {
-                float k = elapsed / e;
-                p1Fill.fillAmount = Mathf.Lerp(start1, end1, k);
-                p2Fill.fillAmount = Mathf.Lerp(start2, end2, k);
-                elapsed += Time.deltaTime;
-                yield return null;
+                if (i < p1Count)
+                    humans[i].material = p1Material;
+                else
+                    humans[i].material = p2Material;
             }
-            p1Fill.fillAmount = end1;
-            p2Fill.fillAmount = end2;
         }
     }
 }
