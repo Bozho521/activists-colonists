@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae25bcc1b7c44c3099c99ac1f2ce20ec, type: 3}
+  m_Name: AudioCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::Data.AudioCatalog
+  defaultMusic: {fileID: 8300000, guid: f83898d24a26a4942aad9457bd656112, type: 3}
+  clips:
+  - key: Slide
+    clip: {fileID: 8300000, guid: bab112a243470914ebea6f51d303e1ce, type: 3}
+  groups:
+  - key: Hover
+    clips:
+    - {fileID: 8300000, guid: 1bed9067010384c3a8fa2e9406b88e02, type: 3}
+    - {fileID: 8300000, guid: 00ee606b7f3e14d18a12a49ed7ab43ce, type: 3}
+    - {fileID: 8300000, guid: a07610ddc3d07497b9334b22a50ee462, type: 3}
+    - {fileID: 8300000, guid: 261d95b1279c14e0cb6bc1a8de5e4966, type: 3}
+  - key: Smash
+    clips:
+    - {fileID: 8300000, guid: 54227761162bf468390188aae44f756b, type: 3}
+    - {fileID: 8300000, guid: 1456b69ee7b784225aebfb55030595c8, type: 3}
+  - key: BuildBubble
+    clips:
+    - {fileID: 8300000, guid: 2e265e0ae3b7f4d49b117f7814db8c03, type: 3}
