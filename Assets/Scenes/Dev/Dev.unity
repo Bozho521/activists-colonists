@@ -1617,6 +1617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUI
       objectReference: {fileID: 0}
+    - target: {fileID: 6573834412796038114, guid: 96ab695ba61e4ed41b12abee85af9054, type: 3}
+      propertyPath: hideTime
+      value: 0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 8003560378646518339, guid: 96ab695ba61e4ed41b12abee85af9054, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.85054

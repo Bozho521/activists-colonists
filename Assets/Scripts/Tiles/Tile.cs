@@ -23,7 +23,8 @@ namespace Tiles
         [SerializeField] private Material outlineMaterial;
         [SerializeField] private Renderer outlineRenderer;
         [SerializeField] private float outlineYOffset = 0.004f;
-        [SerializeField] private Color outlineColor = Color.white;
+        [SerializeField] private Color outlineColorP1 = Color.white;
+        [SerializeField] private Color outlineColorP2 = Color.white;
         [SerializeField] private string outlineColorProperty = "_BaseColor";
 
         
@@ -180,6 +181,7 @@ namespace Tiles
             {
                 var mpb = new MaterialPropertyBlock();
                 outlineRenderer.GetPropertyBlock(mpb);
+                var outlineColor = GameManager.Instance.ActivePlayer == 1 ? outlineColorP1 : outlineColorP2;
                 mpb.SetColor(outlineColorProperty, outlineColor);
                 outlineRenderer.SetPropertyBlock(mpb);
             }
@@ -187,6 +189,7 @@ namespace Tiles
 
         public void SetHoverColor(Color c)
         {
+            var outlineColor = GameManager.Instance.ActivePlayer == 1 ? outlineColorP1 : outlineColorP2;
             outlineColor = c;
             if (!outlineRenderer || !outlineRenderer.enabled) return;
             var mpb = new MaterialPropertyBlock();
