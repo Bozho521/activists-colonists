@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: b5452583d99f6f348b54405cf3caca2f
+timeCreated: 1524576762
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 118468
+  packageName: RPG Medieval Kingdom Kit
+  packageVersion: '2.0 '
+  assetPath: Assets/beffio/Medieval Kingdom/Content/Scripts/Reflection_pass.cs
+  uploadId: 321233

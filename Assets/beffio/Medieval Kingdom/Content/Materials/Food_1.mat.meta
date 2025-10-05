@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: ed6db8d680db81f46b62520b43f5f7da
+timeCreated: 1481127068
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 118468
+  packageName: RPG Medieval Kingdom Kit
+  packageVersion: '2.0 '
+  assetPath: Assets/beffio/Medieval Kingdom/Content/Materials/Sacks/Food_1.mat
+  uploadId: 321233
