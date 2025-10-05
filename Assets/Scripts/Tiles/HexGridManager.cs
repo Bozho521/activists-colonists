@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Data;
 using UnityEngine;
@@ -11,7 +11,7 @@ namespace Tiles
     {
         private readonly List<Tile> _tiles = new();
         public IEnumerable<Tile> AllTiles => _tiles;
-        
+
         [SerializeField] private HexGridConfig hexGridConfig;
 
         public void IndexExistingTiles()
@@ -25,7 +25,7 @@ namespace Tiles
             }
             Debug.Log($"[HexGridManager] Indexed {_tiles.Count} tiles.");
         }
-        
+
         public int CountOwned(TileOwner owner)
         {
             int c = 0;
@@ -84,7 +84,7 @@ namespace Tiles
             var tilePref = PickRandomVisual(owner);
             tile.ApplyVisualTile(tilePref);
         }
-        
+
         private GameObject PickRandomVisual(TileOwner owner)
         {
             var tileList = owner switch
@@ -101,10 +101,69 @@ namespace Tiles
                 Debug.LogError("Tile contains no tiles.");
                 return null;
             }
-            
+
             var max =  tileList.Count ;
             var newTileIndex = Random.Range(0, max);
             return tileList[newTileIndex];
         }
+
+        public void TriggerKaboom(Tile centerTile)
+        {
+            if (centerTile == null)
+            {
+                Debug.LogWarning("[Kaboom] No center tile provided!");
+                return;
+            }
+
+            List<Tile> toDestroy = new List<Tile> { centerTile };
+            var neighbors = new List<Tile>(GetNeighbors(centerTile));
+
+            neighbors.RemoveAll(n => n == null);
+
+            for (int i = 0; i < neighbors.Count; i++)
+            {
+                int rand = Random.Range(i, neighbors.Count);
+                (neighbors[i], neighbors[rand]) = (neighbors[rand], neighbors[i]);
+            }
+
+            int guaranteed = Mathf.Min(3, neighbors.Count);
+            for (int i = 0; i < guaranteed; i++)
+                toDestroy.Add(neighbors[i]);
+
+            int extra = Mathf.Min(3, neighbors.Count - guaranteed);
+            for (int i = guaranteed; i < guaranteed + extra; i++)
+            {
+                if (Random.value < 0.5f)
+                    toDestroy.Add(neighbors[i]);
+            }
+
+            HashSet<Tile> uniqueTiles = new HashSet<Tile>(toDestroy);
+
+            Debug.Log($"[Kaboom] Destroying {uniqueTiles.Count} tiles around {centerTile.name}");
+
+            foreach (var t in uniqueTiles)
+            {
+                t.SetOwner(TileOwner.None);
+                t.SetBuildable(true);
+                ResetTileVisual(t);
+            }
+        }
+
+        private void ResetTileVisual(Tile t)
+        {
+            foreach (Transform child in t.transform)
+            {
+                Destroy(child.gameObject);
+            }
+
+            t.SetOwner(TileOwner.None);
+            t.SetBuildable(true);
+
+            var visualField = t.GetType().GetField("_currentVisual",
+                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            if (visualField != null)
+                visualField.SetValue(t, null);
+        }
+
     }
 }
