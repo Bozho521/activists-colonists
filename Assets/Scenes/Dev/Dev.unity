@@ -1824,6 +1824,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 537882418460001694, guid: 7d1afa6f9e620274eb03627f1cddf5b8, type: 3}
+      propertyPath: owner
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1606336374005314120, guid: 7d1afa6f9e620274eb03627f1cddf5b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.91
@@ -1867,6 +1871,14 @@ PrefabInstance:
     - target: {fileID: 1705168359219593198, guid: 7d1afa6f9e620274eb03627f1cddf5b8, type: 3}
       propertyPath: m_Name
       value: HexGridManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111657335102163728, guid: 7d1afa6f9e620274eb03627f1cddf5b8, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216316564909322834, guid: 7d1afa6f9e620274eb03627f1cddf5b8, type: 3}
+      propertyPath: owner
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
