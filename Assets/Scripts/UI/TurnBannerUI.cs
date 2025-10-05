@@ -99,10 +99,17 @@ namespace UI
             PlayTurnFlash(player);
         }
 
+        private void Start()
+        {
+            UpdatePlayerPoints(1, 0);
+            UpdatePlayerPoints(2, 0);
+        }
+
         public void UpdatePlayerPoints(int player, int amount)
         {
-            if (player == 1) player1Points.text = amount.ToString();
-            else             player2Points.text = amount.ToString();
+            amount = amount * 500;
+            if (player == 1) player1Points.text = amount.ToString() + "$";
+            else             player2Points.text = amount.ToString() + "$";
             StartCoroutine(PunchTextScale(player == 1 ? player1Points.rectTransform : player2Points.rectTransform));
         }
 
