@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 875f084656e91e04eadeb4c86a909fb3
+timeCreated: 1488911698
+licenseType: Store
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 118468
+  packageName: RPG Medieval Kingdom Kit
+  packageVersion: '2.0 '
+  assetPath: Assets/beffio/Medieval Kingdom/Content/Shaders/beffio_Parallax.shader
+  uploadId: 321233

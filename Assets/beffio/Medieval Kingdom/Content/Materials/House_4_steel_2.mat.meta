@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: f93fa0a7b6b3f0c4b89c6e9d3b89e6b8
+timeCreated: 1519833760
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 118468
+  packageName: RPG Medieval Kingdom Kit
+  packageVersion: '2.0 '
+  assetPath: Assets/beffio/Medieval Kingdom/Content/Materials/House_02/House_4_steel_2.mat
+  uploadId: 321233

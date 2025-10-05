@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: ac4fd70bd864d5d429fb1f26f0687c9a
+timeCreated: 1546431825
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 118468
+  packageName: RPG Medieval Kingdom Kit
+  packageVersion: '2.0 '
+  assetPath: Assets/beffio/2.0 Update Medieval Kingdom Standard Shader/Content/Materials_standard/Stones/Stone_06_standard.mat
+  uploadId: 321233
