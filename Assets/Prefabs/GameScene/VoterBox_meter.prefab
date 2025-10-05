@@ -316,10 +316,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.CardInteractable
   actionMode: 0
   data: {fileID: 11400000, guid: 05a0edf5ffae32d48b494e7cbd1abc5a, type: 2}
+  showCost: 0
+  showKey: 0
   maxTilt: 1
   tiltSmooth: 0.135
   tiltScreenRadius: 20
-  hoverScale: 1.4
+  hoverScale: 1.1
   hoverInTime: 0.12
   hoverOutTime: 0.1
   liftDistance: 0.15
