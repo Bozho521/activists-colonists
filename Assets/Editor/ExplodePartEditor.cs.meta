@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 05e99168d416d884088eca4116d8fb87
+timeCreated: 1432116784
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 118468
+  packageName: RPG Medieval Kingdom Kit
+  packageVersion: '2.0 '
+  assetPath: Assets/Editor/ExplodePartEditor.cs
+  uploadId: 321233

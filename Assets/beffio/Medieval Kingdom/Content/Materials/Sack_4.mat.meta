@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 8ad381130cd74744eb1f4ca878c375fe
+timeCreated: 1520597937
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 118468
+  packageName: RPG Medieval Kingdom Kit
+  packageVersion: '2.0 '
+  assetPath: Assets/beffio/Medieval Kingdom/Content/Materials/Sacks/Sack_4.mat
+  uploadId: 321233
