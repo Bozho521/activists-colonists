@@ -1938,6 +1938,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 729785354463704323, guid: 96ab695ba61e4ed41b12abee85af9054, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1735064595732039737, guid: 96ab695ba61e4ed41b12abee85af9054, type: 3}
       propertyPath: m_Name
       value: GameUI
