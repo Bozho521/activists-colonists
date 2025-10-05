@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3935445c64b059e4f9ebddcff947cfba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.CardInteractable
+  actionMode: 0
   data: {fileID: 11400000, guid: f7803e886a7d42e498687db2b1dc3d71, type: 2}
   maxTilt: 12
   tiltSmooth: 0.12
@@ -137,9 +138,8 @@ MonoBehaviour:
   selectRiseTime: 0.12
   selectSettleTime: 0.15
   selectTwistDeg: 10
+  outlineObject: {fileID: 6279295722522489756}
   useUnscaledTime: 1
-  sfxHoverKey: Hover
-  sfxSelectKey: Hover
 --- !u!1 &6279295722522489756
 GameObject:
   m_ObjectHideFlags: 0

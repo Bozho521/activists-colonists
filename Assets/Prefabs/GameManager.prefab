@@ -51,6 +51,11 @@ MonoBehaviour:
   gameConfig: {fileID: 11400000, guid: ca01a16ef34e49a419733a35807942d4, type: 2}
   voteBar: {fileID: 0}
   turnUI: {fileID: 0}
+  cardInteractables:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentAction: 0
 --- !u!114 &4788664654461371581
 MonoBehaviour:

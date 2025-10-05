@@ -1,16 +1,22 @@
 using System.Collections;
 using UnityEngine;
 using Data;
+using Enums;
 using GameControllers;
+using UnityEngine.Serialization;
 
 namespace Player
 {
     [RequireComponent(typeof(Collider))]
     public class CardInteractable : MonoBehaviour
     {
+        public ActionMode actionMode; 
         [Header("Data")]
         public CardData data;
 
+        public bool showCost = false;
+        public bool showKey = false;
+        
         [Header("Tilt")]
         public float maxTilt = 6f;
         [Range(0.01f, 0.6f)] public float tiltSmooth = 0.12f;
@@ -27,6 +33,7 @@ namespace Player
         public float selectRiseTime = 0.12f;
         public float selectSettleTime = 0.15f;
         public float selectTwistDeg = 10f;
+        public GameObject outlineObject;
 
         [Header("Misc")]
         public bool useUnscaledTime = true;
@@ -50,6 +57,7 @@ namespace Player
             _basePosLocal = _t.localPosition;
             _baseRotLocal = _t.localRotation;
             _baseScale = _t.localScale;
+            outlineObject.SetActive(false);
         }
 
         void Update()
@@ -86,12 +94,14 @@ namespace Player
             if (IsSelected) return;
             IsSelected = true;
             
-            //todo : change to select
+            //todo : change sfx to select
             SFXManager.PlaySFX("Hover", 0.9f, null, 0.2f);
             
 
             if (_hoverCo != null) { StopCoroutine(_hoverCo); _hoverCo = null; }
             if (_selectCo != null) StopCoroutine(_selectCo);
+
+            outlineObject.SetActive(true);
             _selectCo = StartCoroutine(SelectAnim());
         }
 
@@ -112,6 +122,8 @@ namespace Player
 
             _currentPitch = 0f;
             _currentRoll  = 0f;
+            outlineObject.SetActive(false);
+            
         }
 
         

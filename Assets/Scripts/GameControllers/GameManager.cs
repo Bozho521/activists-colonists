@@ -8,6 +8,7 @@ using Tiles;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace GameControllers
 {
@@ -21,6 +22,7 @@ namespace GameControllers
         [Header("UI")]
         [SerializeField] private VoteBarUI voteBar;
         [SerializeField] private TurnBannerUI turnUI;
+        [SerializeField] private List<CardInteractable> cardInteractables;
         
 
         [Header("Action Elements")]
@@ -134,10 +136,23 @@ namespace GameControllers
                 TryExecuteCurrentAction();
         }
 
+        void SelectActionCard(ActionMode mode)
+        {
+            foreach (var target in cardInteractables)
+            {
+                target.DeselectImmediate();
+                if (target.actionMode == mode)
+                {
+                    target.Select();
+                }
+            }
+        }
+
         private void SelectAction(ActionMode mode)
         {
             currentAction = mode;
             ClearTargets();
+            SelectActionCard(mode);
 
             switch (mode)
             {

@@ -13,6 +13,10 @@ namespace Player
         [Header("Optional Content")]
         [SerializeField] TextMeshProUGUI title;
         [SerializeField] TextMeshProUGUI description;
+        [SerializeField] TextMeshProUGUI cost;
+        [SerializeField] GameObject costParent;
+        [SerializeField] TextMeshProUGUI key;
+        [SerializeField] GameObject keyParent;
 
         [Header("Animation")]
         [SerializeField] float slideDistance = 220f; 
@@ -65,11 +69,47 @@ namespace Player
             {
                 if (title)       title.text = card.data.title;
                 if (description) description.text = card.data.description;
+
+                if (card.showCost)
+                {
+                    if (cost)
+                    {
+                        costParent.SetActive(true);  
+                        cost.text = card.data.cost.ToString();
+                    }
+                }
+                else
+                {
+                    HideCost();
+                }
+
+                if (card.showKey)
+                {
+                    if (key)
+                    {
+                        keyParent.SetActive(true);
+                        key.text = card.data.key.ToString();
+                    }
+                }
+                else
+                {
+                    HideKey();
+                }
             }
             if (_co != null) StopCoroutine(_co);
             _co = StartCoroutine(Slide(true));
         }
 
+        private void HideCost()
+        {
+            costParent.SetActive(false);   
+        }
+
+        private void HideKey()
+        {
+            keyParent.SetActive(false);
+        }
+        
         public void Hide()
         {
             if (_co != null) StopCoroutine(_co);
