@@ -25,8 +25,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 261d95b1279c14e0cb6bc1a8de5e4966, type: 3}
   - key: Smash
     clips:
-    - {fileID: 8300000, guid: 1bed9067010384c3a8fa2e9406b88e02, type: 3}
-    - {fileID: 8300000, guid: 00ee606b7f3e14d18a12a49ed7ab43ce, type: 3}
+    - {fileID: 8300000, guid: 54227761162bf468390188aae44f756b, type: 3}
+    - {fileID: 8300000, guid: 1456b69ee7b784225aebfb55030595c8, type: 3}
   - key: BuildBubble
     clips:
     - {fileID: 8300000, guid: 2e265e0ae3b7f4d49b117f7814db8c03, type: 3}

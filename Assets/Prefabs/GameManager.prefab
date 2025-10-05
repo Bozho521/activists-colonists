@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8738010830727431846}
   - component: {fileID: 7453256944583141430}
   - component: {fileID: 4788664654461371581}
+  - component: {fileID: 601371811876109252}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -68,3 +69,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rayDistance: 1000
+--- !u!114 &601371811876109252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8200482430599627763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b20e70b4f74146b415fc2f4fbf6f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.CardRaycaster
+  cam: {fileID: 0}
+  cardMask:
+    serializedVersion: 2
+    m_Bits: 128
+  rayDistance: 1000
+  ignoreWhenPointerOverUI: 1
+  infoPanel: {fileID: 0}
