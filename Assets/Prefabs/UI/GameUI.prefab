@@ -1317,7 +1317,7 @@ MonoBehaviour:
   description: {fileID: 147901685582297170}
   slideDistance: 400
   showTime: 0.18
-  hideTime: 0.08
+  hideTime: 0.06
   useUnscaledTime: 1
 --- !u!225 &5940916665935613028
 CanvasGroup:
