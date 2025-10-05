@@ -1,7 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
 using Data;
 using UnityEngine;
 using Enums;
+using GameControllers;
 
 namespace Tiles
 {
@@ -24,6 +26,14 @@ namespace Tiles
         [SerializeField] private Color outlineColor = Color.white;
         [SerializeField] private string outlineColorProperty = "_BaseColor";
 
+        
+        [Header("Spawn Animation")]
+        [SerializeField] private float spawnDuration = 0.22f;
+        [SerializeField] private float spawnOvershoot = 1.12f;
+        [SerializeField] private bool  spawnUseUnscaledTime = true;
+        private Coroutine _spawnCo;
+        
+        
         private Renderer _renderer;
         private MaterialPropertyBlock _mpb;
 
@@ -72,6 +82,7 @@ namespace Tiles
 
         public void ApplyVisualTile(GameObject tilePrefab)
         {
+
             if (currentGraphics == null)
                 currentGraphics = this.gameObject;
 
@@ -80,15 +91,71 @@ namespace Tiles
 
             var go = Instantiate(tilePrefab, currentGraphics.transform);
             go.transform.localPosition = Vector3.zero;
-            go.transform.localScale = Vector3.one * 1.01f;
-            go.transform.localRotation = Quaternion.Euler(180f, 0f, 0f);
+            var rand = Random.Range(0,6);
+            go.transform.localRotation = Quaternion.Euler(180f,0f, 60f * rand);
+
+            Vector3 finalScale = Vector3.one * 1.01f;
+            go.transform.localScale = Vector3.zero;
 
             _renderer = currentGraphics.GetComponentInChildren<Renderer>();
             ApplyVisual();
 
             EnsureOutline(forceRecreate: true);
             SetHover(false);
+
+            if (_spawnCo != null) StopCoroutine(_spawnCo);
+            
+            _spawnCo = StartCoroutine(BubbleIn(go.transform, finalScale, spawnDuration, spawnOvershoot));
         }
+        
+        private IEnumerator BubbleIn(Transform tr, Vector3 finalScale, float duration, float overshoot)
+        {
+            //GameManager.Instance.BlockRayCast =  true;
+            
+            duration = Mathf.Max(0.01f, duration);
+            overshoot = Mathf.Max(1.0f, overshoot);
+
+            float t = 0f;
+            Vector3 zero = Vector3.zero;
+            Vector3 peak = finalScale * overshoot;
+
+            float Dt() => spawnUseUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+
+            float upTime = duration * 0.55f;
+            while (t < upTime)
+            {
+                t += Dt();
+                float k = Mathf.Clamp01(t / upTime);
+                float e = 1f - Mathf.Pow(1f - k, 3f);
+                tr.localScale = Vector3.LerpUnclamped(zero, peak, e);
+                yield return null;
+            }
+            SFXManager.PlayRandomSFX("BuildBubble", 1f, null, 0.2f);
+            
+            t = 0f;
+            float downTime = duration - upTime;
+            const float back = 1.3f;
+            while (t < downTime)
+            {
+                t += Dt();
+                float k = Mathf.Clamp01(t / downTime);
+                float e = EaseOutBack(k, back);
+                tr.localScale = Vector3.LerpUnclamped(peak, finalScale, e);
+                yield return null;
+            }
+
+            tr.localScale = finalScale;
+            
+            //GameManager.Instance.BlockRayCast =  false;
+        }
+
+        private static float EaseOutBack(float x, float s = 1.70158f)
+        {
+            float c1 = s;
+            float c3 = c1 + 1f;
+            return 1f + c3 * Mathf.Pow(x - 1f, 3f) + c1 * Mathf.Pow(x - 1f, 2f);
+        }
+        
 
         private void ApplyVisual()
         {

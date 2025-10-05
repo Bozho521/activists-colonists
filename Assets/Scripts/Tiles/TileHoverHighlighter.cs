@@ -1,3 +1,4 @@
+using GameControllers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Tiles;
@@ -27,6 +28,7 @@ public class TileHoverHighlighter : MonoBehaviour
             var tile = hit.collider.GetComponentInParent<Tile>();
             if (tile != _current)
             {
+                SFXManager.PlayRandomSFX("Hover", 0.7f, null, 0.2f);
                 if (_current) _current.SetHover(false);
                 _current = tile;
                 if (_current) _current.SetHover(true);

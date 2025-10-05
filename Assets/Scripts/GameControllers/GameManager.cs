@@ -8,7 +8,6 @@ using Tiles;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace GameControllers
 {
@@ -42,8 +41,19 @@ namespace GameControllers
         public event Action<int> OnTurnChanged;
         public event Action<GameState> OnGameStateChanged;
 
+        
+        //todo: remove singleton
+        public static GameManager Instance;
+
         private void Awake()
         {
+            if (Instance && Instance != this)
+            {
+                Destroy(gameObject); 
+                return;
+            }
+            Instance = this;
+            
             if (!mainCamera) mainCamera = Camera.main;
 
             _votes = new VoteManager(
@@ -296,6 +306,7 @@ namespace GameControllers
 
                 if (t.Owner != winner)
                 {
+                    SFXManager.PlayRandomSFX("Smash", 1f, null, 0.3f);
                     grid.MarkBuilt(t, winner);
                 }
 

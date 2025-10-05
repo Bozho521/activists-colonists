@@ -217,7 +217,7 @@ namespace UI
             yield return new WaitForSeconds(0.25f);
             rt.gameObject.SetActive(true);
             rt.anchoredPosition = new Vector2(fromX, center.y);
-
+            
             yield return SlideX(rt, fromX, center.x, flashInDuration);
 
             yield return Hold(flashHoldTime);
@@ -234,6 +234,8 @@ namespace UI
             float t = 0f;
             float Dt() => useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
             float y = rt.anchoredPosition.y;
+            
+            SFXManager.PlaySFX("Slide", 0.7f, null, 0.2f);
 
             while (t < dur)
             {

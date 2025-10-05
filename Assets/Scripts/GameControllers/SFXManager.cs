@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Data;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace GameControllers
 {
@@ -25,7 +27,11 @@ namespace GameControllers
 
         void Awake()
         {
-            if (Instance && Instance != this) { Destroy(gameObject); return; }
+            if (Instance && Instance != this)
+            {
+                Destroy(gameObject); 
+                return;
+            }
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
@@ -49,6 +55,11 @@ namespace GameControllers
 
             if (catalog && catalog.defaultMusic)
                 PlayMusicClip(catalog.defaultMusic, loop: true, fade: 0f);
+        }
+
+        private void Start()
+        {
+            //PlayMusicClip(catalog.defaultMusic,true,0);
         }
 
         public static void SetMasterVolume(float v)

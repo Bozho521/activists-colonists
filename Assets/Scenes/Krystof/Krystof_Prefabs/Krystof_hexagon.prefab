@@ -145,6 +145,9 @@ MonoBehaviour:
   outlineYOffset: 2
   outlineColor: {r: 0.83137256, g: 0.34274584, b: 0.0627451, a: 0.80784315}
   outlineColorProperty: _BaseColor
+  spawnDuration: 0.3
+  spawnOvershoot: 1.12
+  spawnUseUnscaledTime: 1
 --- !u!114 &7756159849010026534
 MonoBehaviour:
   m_ObjectHideFlags: 0
