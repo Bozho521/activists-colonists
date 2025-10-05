@@ -5,6 +5,7 @@ namespace Enums
         Boot,
         PlayerTurn,
         Resolving,
+        Ending,
         Ended
     }
 }
