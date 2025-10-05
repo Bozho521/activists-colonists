@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TileConfig
   m_EditorClassIdentifier: Assembly-CSharp::Data.TileConfig
   id: 
-  neutralMat: {fileID: 2100000, guid: fe2edf13cb4b7324faf60ab1765ced0a, type: 2}
+  neutralMat: {fileID: 2100000, guid: 20b99ffc97b6d4b7082c8e8979ff7bc3, type: 2}
   p1OwnedMat: {fileID: 2100000, guid: 6f17f17a352443c47a8c87304f200665, type: 2}
   p2OwnedMat: {fileID: 2100000, guid: 3bf82771cb4358241b085b9fa3559c65, type: 2}
   buildable: 1

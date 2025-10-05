@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Data;
 using UnityEngine;
 using Enums;
+using GameControllers;
 using Random = UnityEngine.Random;
 
 namespace Tiles
@@ -115,10 +116,9 @@ namespace Tiles
                 return;
             }
             
-            List<Tile> toDestroy = new List<Tile> { centerTile };
+            List<Tile> tilesToReset = new List<Tile> { centerTile };
             var neighbors = new List<Tile>(GetNeighbors(centerTile));
-
-            neighbors.RemoveAll(n => n == null);
+            
 
             for (int i = 0; i < neighbors.Count; i++)
             {
@@ -128,41 +128,35 @@ namespace Tiles
 
             int guaranteed = Mathf.Min(3, neighbors.Count);
             for (int i = 0; i < guaranteed; i++)
-                toDestroy.Add(neighbors[i]);
+                tilesToReset.Add(neighbors[i]);
 
             int extra = Mathf.Min(3, neighbors.Count - guaranteed);
             for (int i = guaranteed; i < guaranteed + extra; i++)
             {
                 if (Random.value < 0.5f)
-                    toDestroy.Add(neighbors[i]);
+                    tilesToReset.Add(neighbors[i]);
             }
-
-            HashSet<Tile> uniqueTiles = new HashSet<Tile>(toDestroy);
-
-            Debug.Log($"[Kaboom] Destroying {uniqueTiles.Count} tiles around {centerTile.name}");
-
-            foreach (var t in uniqueTiles)
+            
+            Debug.Log($"[Kaboom] Destroying {tilesToReset.Count} tiles around {centerTile.name}, -=---= {tilesToReset}");
+            Debug.Log("");
+            
+            SFXManager.PlaySFX("bomb", 1, null, 0f);
+            foreach (var tile in tilesToReset)
             {
-                t.SetOwner(TileOwner.None);
-                t.SetBuildable(true);
-                ResetTileVisual(t);
+                tile.SetOwner(TileOwner.None);
+                tile.SetBuildable(true);
+                Debug.Log($"item with name {tile.gameObject.name} has no child transform");
+                
+                var hasChild = tile.currentGraphics.transform.childCount > 0;
+                if(!hasChild) continue;
+                var tileGraphicsGO = tile.currentGraphics.transform.GetChild(0)?.gameObject;
+                if (tileGraphicsGO == null) continue;
+                
+                Destroy(tileGraphicsGO);
+                
+
+                tile.ApplyVisual();
             }
-        }
-
-        private void ResetTileVisual(Tile t)
-        {
-            foreach (Transform child in t.transform)
-            {
-                Destroy(child.gameObject);
-            }
-
-            t.SetOwner(TileOwner.None);
-            t.SetBuildable(true);
-
-            var visualField = t.GetType().GetField("_currentVisual",
-                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            if (visualField != null)
-                visualField.SetValue(t, null);
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using GameControllers;
 using UnityEngine;
 using Tiles;
 
@@ -13,7 +14,7 @@ public class KaboomBoomManager : MonoBehaviour
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        
     }
 
     private void OnMouseDown()
@@ -28,6 +29,7 @@ public class KaboomBoomManager : MonoBehaviour
 
         if (!isArmed)
         {
+            transform.localPosition= Input.mousePosition; 
             Debug.Log("Kaboom armed! Click a tile to explode.");
             isArmed = true;
         }
@@ -40,6 +42,9 @@ public class KaboomBoomManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
             TryExplodeTile();
     }
+    
+    
+    
 
     private void TryExplodeTile()
     {
@@ -51,7 +56,6 @@ public class KaboomBoomManager : MonoBehaviour
 
         hexGridManager.TriggerKaboom(tile);
         
-        audioSource.Play();
         smokeEffect.SetActive(true);
         explosionEffect.SetActive(true);
         
