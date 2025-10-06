@@ -84,7 +84,8 @@ namespace GameControllers
         {
             if (BlockRayCast) return;
             if (State != GameState.PlayerTurn) return;
-
+            
+            
             if (Keyboard.current.digit1Key.wasPressedThisFrame) SelectAction(ActionMode.BasicBuild);
             if (Keyboard.current.digit2Key.wasPressedThisFrame) SelectAction(ActionMode.BuildAnywhere);
             if (Keyboard.current.digit3Key.wasPressedThisFrame) SelectAction(ActionMode.BuildTwo);
@@ -229,6 +230,12 @@ namespace GameControllers
             if (me.Points < _actionCost)
             {
                 Debug.Log("Not enough points for selected action.");
+                var cameraController = mainCamera.GetComponent<MouseParallaxPan>();
+                if (cameraController != null)
+                {
+                    cameraController.Shake(gameConfig.amplitude, gameConfig.frequency, gameConfig.duration);
+                }
+                
                 ClearTargets();
                 return;
             }
@@ -297,10 +304,17 @@ namespace GameControllers
             OnGameStateChanged?.Invoke(s);
         }
 
-        private static TileOwner ToOwner(int p) => p == 1 ? TileOwner.P1 : TileOwner.P2;
+        private static TileOwner ToOwner(int p)
+        {
+            if (p <= 0 || p >= 3)
+            {
+                Debug.Log("[GameManager] ::: Player index out of range.");
+                return TileOwner.None;
+            }
+            return p == 1 ? TileOwner.P1 : TileOwner.P2;
+        }
 
-        
-        
+
         private void EndGame()
         {
             int p1Owned = grid.CountOwned(TileOwner.P1);

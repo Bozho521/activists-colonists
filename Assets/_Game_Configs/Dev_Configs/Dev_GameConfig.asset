@@ -21,10 +21,13 @@ MonoBehaviour:
   pointsPerTile: 50
   cost_BuildTwo: 200
   cost_BuildAnywhere: 50
-  cost_TakeOver: 150
+  cost_TakeOver: 10
   minVotePercent: 40
   voteDeltaPerBuild: 5
   p1Color: {r: 0.014438056, g: 0.20754719, b: 0, a: 1}
   p2Color: {r: 0.26415092, g: 0.012295087, b: 0, a: 1}
   endAnimDuration: 3
   focusFromWinnerRegion: 1
+  amplitude: 0.1
+  frequency: 20
+  duration: 0.5

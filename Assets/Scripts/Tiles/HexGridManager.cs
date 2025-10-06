@@ -89,20 +89,22 @@ namespace Tiles
         {
             var tileList = owner switch
             {
-
                 TileOwner.None => hexGridConfig.tiles,
                 TileOwner.P1 => hexGridConfig.activistsTiles,
                 TileOwner.P2 => hexGridConfig.capitalistsTiles,
                 _ => null,
             };
+            
+            Debug.Log("OWNER" + owner);
+            Debug.Log("OWNER" + tileList);
 
-            if (tileList.Count == 0)
+            if (tileList == null || tileList.Count == 0)
             {
                 Debug.LogError("Tile contains no tiles.");
                 return null;
             }
             
-            var max =  tileList.Count ;
+            var max =  tileList.Count;
             var newTileIndex = Random.Range(0, max);
             return tileList[newTileIndex];
         }

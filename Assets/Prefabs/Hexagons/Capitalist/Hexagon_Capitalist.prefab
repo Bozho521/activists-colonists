@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 135d994a8e4374d8f938225713114e35, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 9c0888698de314c3cab7258a3f2cb669, type: 2}
+      objectReference: {fileID: 2100000, guid: 3bf82771cb4358241b085b9fa3559c65, type: 2}
     - target: {fileID: 919132149155446097, guid: 135d994a8e4374d8f938225713114e35, type: 3}
       propertyPath: m_Name
       value: Hexagon_Capitalist

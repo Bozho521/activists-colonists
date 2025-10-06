@@ -38,5 +38,11 @@ namespace Data
         [Header("End Animation")]
         public float endAnimDuration = 1.5f;
         public bool focusFromWinnerRegion = true; 
+        
+        
+        [Header("Shake Animation")]
+        public float amplitude = 0.5f;
+        public float frequency = 0.5f;
+        public float duration = 1.5f;
     }
 }
