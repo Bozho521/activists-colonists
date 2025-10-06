@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a3a0399274347bf856223b1c63a077b, type: 3}
-  m_Name: GameConfig
+  m_Name: Dev_GameConfig
   m_EditorClassIdentifier: Assembly-CSharp::Data.GameConfig
   startVoteP1: 50
   rngSeed: 12345
   uiTweenSeconds: 0.25
   deterministic: 0
   selectedTilePrefab: {fileID: 7712399972903102031, guid: df445c1fb9b0a7b488c5d11707bc1c8a, type: 3}
-  requiredTargetsToBuild: 2
-  pointsPerTile: 2
-  cost_BuildTwo: 4
-  cost_BuildAnywhere: 2
-  cost_TakeOver: 4
+  requiredTargetsToBuild: 5
+  pointsPerTile: 50
+  cost_BuildTwo: 200
+  cost_BuildAnywhere: 50
+  cost_TakeOver: 150
   minVotePercent: 40
   voteDeltaPerBuild: 5
   p1Color: {r: 0.014438056, g: 0.20754719, b: 0, a: 1}

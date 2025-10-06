@@ -15,5 +15,5 @@ MonoBehaviour:
   title: Double Trouble
   description: Pick 2 tiles, both of them need to be adjacent to other tiles you
     own
-  cost: 4
-  key: 2
+  cost: 200
+  key: 3

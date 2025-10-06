@@ -8,7 +8,6 @@ using Tiles;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace GameControllers
 {
@@ -35,6 +34,8 @@ namespace GameControllers
 
         private VoteManager _votes;
         private PlayerState[] _players;
+
+        private List<GameObject> _selectedTilesGos= new List<GameObject>();
 
         private readonly List<Tile> _pendingTargets = new();
         private int _requiredTargets = 1;
@@ -85,8 +86,8 @@ namespace GameControllers
             if (State != GameState.PlayerTurn) return;
 
             if (Keyboard.current.digit1Key.wasPressedThisFrame) SelectAction(ActionMode.BasicBuild);
-            if (Keyboard.current.digit2Key.wasPressedThisFrame) SelectAction(ActionMode.BuildTwo);
-            if (Keyboard.current.digit3Key.wasPressedThisFrame) SelectAction(ActionMode.BuildAnywhere);
+            if (Keyboard.current.digit2Key.wasPressedThisFrame) SelectAction(ActionMode.BuildAnywhere);
+            if (Keyboard.current.digit3Key.wasPressedThisFrame) SelectAction(ActionMode.BuildTwo);
             if (Keyboard.current.digit4Key.wasPressedThisFrame) SelectAction(ActionMode.TakeOver);
 
             if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -128,12 +129,24 @@ namespace GameControllers
             if (!Physics.Raycast(ray, out RaycastHit hit, 1000f)) return;
             var tile = hit.collider.GetComponentInParent<Tile>();
             if (tile == null) return;
-
+            
             if (_pendingTargets.Contains(tile)) return;
             if (!IsTileValidForCurrentAction(tile)) return;
-
+            
             Debug.Log("_pendingTargets"+ _pendingTargets);
+            Debug.Log("_pendingTargets"+ tile.gameObject.name);
             _pendingTargets.Add(tile);
+
+            if (currentAction == ActionMode.BuildTwo)
+            {
+                Debug.Log("Add slelelelelell");
+                //todo : add visual to that tile;
+                var selectedTileGO = Instantiate(gameConfig.selectedTilePrefab);
+                selectedTileGO.transform.position = tile.transform.position;
+                selectedTileGO.transform.localScale = Vector3.one * 1.1f;
+                _selectedTilesGos.Add(selectedTileGO);
+            }
+   
 
             if (_pendingTargets.Count >= _requiredTargets)
                 TryExecuteCurrentAction();
@@ -164,7 +177,7 @@ namespace GameControllers
                     _actionCost = 0;
                     break;
                 case ActionMode.BuildTwo:
-                    _requiredTargets = 2;
+                    _requiredTargets = gameConfig.requiredTargetsToBuild;
                     _actionCost = gameConfig.cost_BuildTwo;
                     break;
                 case ActionMode.BuildAnywhere:
@@ -179,7 +192,15 @@ namespace GameControllers
             // TODO: update UI to show selected action & cost & available points
         }
 
-        private void ClearTargets() => _pendingTargets.Clear();
+        private void ClearTargets()
+        {
+            _pendingTargets.Clear();
+            foreach (var go in _selectedTilesGos)
+            {
+                DestroyImmediate(go.gameObject);
+            }
+            _selectedTilesGos.Clear();
+        }
 
         private bool IsTileValidForCurrentAction(Tile tile)
         {

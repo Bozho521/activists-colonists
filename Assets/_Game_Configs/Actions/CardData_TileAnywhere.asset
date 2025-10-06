@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.CardData
   title: Pick a tile
   description: Pick a tile that it's not adjacent to other tiles and claim it
-  cost: 2
-  key: 3
+  cost: 50
+  key: 2

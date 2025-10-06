@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.CardData
   title: Time to Switch
   description: Pick one of your opponent tiles and make it yours
-  cost: 4
+  cost: 200
   key: 4
