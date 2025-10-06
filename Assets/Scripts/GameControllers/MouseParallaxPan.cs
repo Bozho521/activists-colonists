@@ -139,6 +139,7 @@ namespace GameControllers
     
         public void Shake(float amplitude, float frequency, float duration, float decay = 1f)
         {
+            Debug.Log("Play Shake funciton");
             _shakeAmplitude = Mathf.Max(0f, amplitude);
             _shakeFrequency = frequency > 0f ? frequency : defaultFrequency;
             _shakeTimeLeft  = Mathf.Max(0f, duration);

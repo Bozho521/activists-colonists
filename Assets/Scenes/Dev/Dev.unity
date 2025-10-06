@@ -1048,6 +1048,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 426583275}
     - target: {fileID: 7453256944583141430, guid: 476cea9bdf1de664c9a6b450d5b5c164, type: 3}
+      propertyPath: cameraShakeController
+      value: 
+      objectReference: {fileID: 426583277}
+    - target: {fileID: 7453256944583141430, guid: 476cea9bdf1de664c9a6b450d5b5c164, type: 3}
       propertyPath: 'cardInteractables.Array.data[0]'
       value: 
       objectReference: {fileID: 349829798}

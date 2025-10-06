@@ -8,6 +8,7 @@ using Tiles;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace GameControllers
 {
@@ -15,6 +16,7 @@ namespace GameControllers
     {
         [Header("Refs")]
         [SerializeField] private Camera mainCamera;
+        [SerializeField] private MouseParallaxPan cameraShakeController;
         [SerializeField] private HexGridManager grid;
         [SerializeField] private GameConfig gameConfig;
 
@@ -90,6 +92,12 @@ namespace GameControllers
             if (Keyboard.current.digit2Key.wasPressedThisFrame) SelectAction(ActionMode.BuildAnywhere);
             if (Keyboard.current.digit3Key.wasPressedThisFrame) SelectAction(ActionMode.BuildTwo);
             if (Keyboard.current.digit4Key.wasPressedThisFrame) SelectAction(ActionMode.TakeOver);
+
+
+            if (Keyboard.current.rKey.wasPressedThisFrame)
+            {
+                SceneManager.LoadScene(0);
+            }
 
             if (Mouse.current.leftButton.wasPressedThisFrame)
                 HandleClick();
@@ -230,11 +238,7 @@ namespace GameControllers
             if (me.Points < _actionCost)
             {
                 Debug.Log("Not enough points for selected action.");
-                var cameraController = mainCamera.GetComponent<MouseParallaxPan>();
-                if (cameraController != null)
-                {
-                    cameraController.Shake(gameConfig.amplitude, gameConfig.frequency, gameConfig.duration);
-                }
+                cameraShakeController.Shake(gameConfig.amplitude, gameConfig.frequency, gameConfig.duration);
                 
                 ClearTargets();
                 return;
