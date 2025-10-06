@@ -14,7 +14,7 @@ namespace Tiles
         [SerializeField] private TileConfig config;
         [SerializeField] private TileOwner owner = TileOwner.None;
         [SerializeField] private bool buildable = true;
-        [SerializeField] private GameObject currentGraphics;
+        public GameObject currentGraphics;
 
         [Tooltip("Assign neighbor tiles here (6 max for hex).")]
         [SerializeField] private List<Tile> neighbors = new List<Tile>();
@@ -158,7 +158,7 @@ namespace Tiles
         }
         
 
-        private void ApplyVisual()
+        public void ApplyVisual()
         {
             if (_renderer == null || config == null) return;
 

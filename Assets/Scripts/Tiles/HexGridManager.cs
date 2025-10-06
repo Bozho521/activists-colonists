@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Data;
 using UnityEngine;
 using Enums;
+using GameControllers;
 using Random = UnityEngine.Random;
 
 namespace Tiles
@@ -108,5 +109,58 @@ namespace Tiles
             var newTileIndex = Random.Range(0, max);
             return tileList[newTileIndex];
         }
+        
+        
+        public void TriggerKaboom(Tile centerTile)
+        {
+            if (centerTile == null)
+            {
+                Debug.LogWarning("[Kaboom] No center tile provided!");
+                return;
+            }
+            
+            List<Tile> tilesToReset = new List<Tile> { centerTile };
+            var neighbors = new List<Tile>(GetNeighbors(centerTile));
+            
+
+            for (int i = 0; i < neighbors.Count; i++)
+            {
+                int rand = Random.Range(i, neighbors.Count);
+                (neighbors[i], neighbors[rand]) = (neighbors[rand], neighbors[i]);
+            }
+
+            int guaranteed = Mathf.Min(3, neighbors.Count);
+            for (int i = 0; i < guaranteed; i++)
+                tilesToReset.Add(neighbors[i]);
+
+            int extra = Mathf.Min(3, neighbors.Count - guaranteed);
+            for (int i = guaranteed; i < guaranteed + extra; i++)
+            {
+                if (Random.value < 0.5f)
+                    tilesToReset.Add(neighbors[i]);
+            }
+            
+            Debug.Log($"[Kaboom] Destroying {tilesToReset.Count} tiles around {centerTile.name}, -=---= {tilesToReset}");
+            Debug.Log("");
+            
+            SFXManager.PlaySFX("bomb", 1, null, 0f);
+            foreach (var tile in tilesToReset)
+            {
+                tile.SetOwner(TileOwner.None);
+                tile.SetBuildable(true);
+                Debug.Log($"item with name {tile.gameObject.name} has no child transform");
+                
+                var hasChild = tile.currentGraphics.transform.childCount > 0;
+                if(!hasChild) continue;
+                var tileGraphicsGO = tile.currentGraphics.transform.GetChild(0)?.gameObject;
+                if (tileGraphicsGO == null) continue;
+                
+                Destroy(tileGraphicsGO);
+                
+
+                tile.ApplyVisual();
+            }
+        }
+        
     }
 }

@@ -16,6 +16,8 @@ MonoBehaviour:
   clips:
   - key: Slide
     clip: {fileID: 8300000, guid: bab112a243470914ebea6f51d303e1ce, type: 3}
+  - key: bomb
+    clip: {fileID: 8300000, guid: 466dd95933b30c74c88b0e131de480f3, type: 3}
   groups:
   - key: Hover
     clips:
