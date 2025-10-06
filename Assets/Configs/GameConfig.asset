@@ -16,10 +16,13 @@ MonoBehaviour:
   rngSeed: 12345
   uiTweenSeconds: 0.25
   deterministic: 0
-  cost_BuildTwo: 3
-  cost_BuildAnywhere: 3
+  pointsPerTile: 2
+  cost_BuildTwo: 4
+  cost_BuildAnywhere: 2
   cost_TakeOver: 4
   minVotePercent: 40
   voteDeltaPerBuild: 5
+  p1Color: {r: 0.014438056, g: 0.20754719, b: 0, a: 1}
+  p2Color: {r: 0.26415092, g: 0.012295087, b: 0, a: 1}
   endAnimDuration: 3
   focusFromWinnerRegion: 1
