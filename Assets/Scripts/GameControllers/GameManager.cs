@@ -98,7 +98,8 @@ namespace GameControllers
         private void BeginTurn()
         {
             turnUI?.ShowTurn(ActivePlayer);
-            _players[ActivePlayer].AddPoints(1);
+            mainCamera.backgroundColor = ActivePlayer == 1 ? gameConfig.p1Color :  gameConfig.p2Color;
+            _players[ActivePlayer].AddPoints(gameConfig.pointsPerTile);
             SelectAction(ActionMode.BasicBuild);
             turnUI?.UpdatePlayerPoints(ActivePlayer, _players[ActivePlayer].Points);
             Transition(GameState.PlayerTurn);
@@ -107,6 +108,8 @@ namespace GameControllers
 
         private void EndTurn()
         {
+            //update prev player UI
+            turnUI.UpdatePlayerPoints(ActivePlayer, _players[ActivePlayer].Points);
             ActivePlayer = _votes.RollWinner();
             turnUI.UpdatePlayerPoints(ActivePlayer, _players[ActivePlayer].Points);
 

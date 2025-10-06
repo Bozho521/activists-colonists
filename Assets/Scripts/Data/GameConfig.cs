@@ -11,6 +11,7 @@ namespace Data
         public bool deterministic = true;
 
         [Header("Action Costs (points)")]
+        public int pointsPerTile = 1 ;
         public int cost_BuildTwo = 2;
         public int cost_BuildAnywhere = 3;
         public int cost_TakeOver = 4;
@@ -19,6 +20,10 @@ namespace Data
         [Range(0,50)] public int minVotePercent = 10;
         public int voteDeltaPerBuild = 5;
 
+        [Header("Turn Camera Color")]
+        public Color p1Color;
+        public Color p2Color;
+        
         [Header("End Animation")]
         public float endAnimDuration = 1.5f;
         public bool focusFromWinnerRegion = true; 
