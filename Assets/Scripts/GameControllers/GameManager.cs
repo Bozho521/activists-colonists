@@ -125,31 +125,39 @@ namespace GameControllers
 
         private void HandleClick()
         {
-            var ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-            if (!Physics.Raycast(ray, out RaycastHit hit, 1000f)) return;
-            var tile = hit.collider.GetComponentInParent<Tile>();
-            if (tile == null) return;
-            
-            if (_pendingTargets.Contains(tile)) return;
-            if (!IsTileValidForCurrentAction(tile)) return;
-            
-            Debug.Log("_pendingTargets"+ _pendingTargets);
-            Debug.Log("_pendingTargets"+ tile.gameObject.name);
-            _pendingTargets.Add(tile);
-
-            if (currentAction == ActionMode.BuildTwo)
+            if (Mouse.current.leftButton.wasPressedThisFrame)
             {
-                Debug.Log("Add slelelelelell");
-                //todo : add visual to that tile;
-                var selectedTileGO = Instantiate(gameConfig.selectedTilePrefab);
-                selectedTileGO.transform.position = tile.transform.position;
-                selectedTileGO.transform.localScale = Vector3.one * 1.1f;
-                _selectedTilesGos.Add(selectedTileGO);
-            }
-   
+                var ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+                if (Physics.Raycast(ray, out RaycastHit hit, 1000f))
+                {
+                    var card = hit.collider.GetComponentInParent<CardInteractable>();
+                    if (card != null)
+                    {
+                        SelectAction(card.actionMode);
+                        return;
+                    }
 
-            if (_pendingTargets.Count >= _requiredTargets)
-                TryExecuteCurrentAction();
+                    var tile = hit.collider.GetComponentInParent<Tile>();
+                    if (tile != null)
+                    {
+                        if (_pendingTargets.Contains(tile)) return;
+                        if (!IsTileValidForCurrentAction(tile)) return;
+
+                        _pendingTargets.Add(tile);
+
+                        if (currentAction == ActionMode.BuildTwo)
+                        {
+                            var selectedTileGO = Instantiate(gameConfig.selectedTilePrefab);
+                            selectedTileGO.transform.position = tile.transform.position;
+                            selectedTileGO.transform.localScale = Vector3.one * 1.1f;
+                            _selectedTilesGos.Add(selectedTileGO);
+                        }
+
+                        if (_pendingTargets.Count >= _requiredTargets)
+                            TryExecuteCurrentAction();
+                    }
+                }
+            }
         }
 
         void SelectActionCard(ActionMode mode)
