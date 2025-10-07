@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &27540535 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 729785354463704323, guid: 96ab695ba61e4ed41b12abee85af9054, type: 3}
-  m_PrefabInstance: {fileID: 7949830214117533668}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &125261943 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3605731680897139793, guid: dc8a78d11abfd454bb8ac53243d4d5ed, type: 3}
@@ -708,10 +703,6 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f295c1bd7a2975048a0ede8dc9cb3d3f, type: 3}
       propertyPath: m_Name
       value: Bomb
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: f295c1bd7a2975048a0ede8dc9cb3d3f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1346,10 +1337,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1065911965}
     - target: {fileID: 7453256944583141430, guid: 476cea9bdf1de664c9a6b450d5b5c164, type: 3}
-      propertyPath: winUI
-      value: 
-      objectReference: {fileID: 27540535}
-    - target: {fileID: 7453256944583141430, guid: 476cea9bdf1de664c9a6b450d5b5c164, type: 3}
       propertyPath: turnUI
       value: 
       objectReference: {fileID: 2105615164}
@@ -1430,17 +1417,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 476cea9bdf1de664c9a6b450d5b5c164, type: 3}
---- !u!114 &4667411514592092714 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7453256944583141430, guid: 476cea9bdf1de664c9a6b450d5b5c164, type: 3}
-  m_PrefabInstance: {fileID: 4667411514592092713}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbd87bd5187528c43b2c62d4046446d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameControllers.GameManager
 --- !u!1001 &6186753770760492110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1567,10 +1543,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUI
       objectReference: {fileID: 0}
-    - target: {fileID: 2840353703845311117, guid: 96ab695ba61e4ed41b12abee85af9054, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4667411514592092714}
     - target: {fileID: 8003560378646518339, guid: 96ab695ba61e4ed41b12abee85af9054, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.85054

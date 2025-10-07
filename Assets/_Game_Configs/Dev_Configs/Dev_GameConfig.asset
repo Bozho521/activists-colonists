@@ -17,8 +17,8 @@ MonoBehaviour:
   uiTweenSeconds: 0.25
   deterministic: 0
   selectedTilePrefab: {fileID: 7712399972903102031, guid: df445c1fb9b0a7b488c5d11707bc1c8a, type: 3}
-  requiredTargetsToBuild: 2
-  pointsPerTile: 50
+  requiredTargetsToBuild: 4
+  pointsPerTile: 100
   cost_BuildTwo: 200
   cost_BuildAnywhere: 50
   cost_TakeOver: 150

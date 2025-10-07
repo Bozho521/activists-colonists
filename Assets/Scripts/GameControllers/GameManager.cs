@@ -19,6 +19,9 @@ namespace GameControllers
         [SerializeField] private MouseParallaxPan cameraShakeController;
         [SerializeField] private HexGridManager grid;
         [SerializeField] private GameConfig gameConfig;
+        
+        [Header("UI")]
+        [SerializeField] private GameObject winUI;
 
         [Header("UI")]
         [SerializeField] private VoteBarUI voteBar;
@@ -61,6 +64,9 @@ namespace GameControllers
             
             if (!mainCamera) mainCamera = Camera.main;
 
+            //todo" remove
+            winUI.SetActive(false);
+            
             _votes = new VoteManager(
                 gameConfig.startVoteP1,
                 gameConfig.deterministic ? gameConfig.rngSeed : (int?)null,
@@ -382,6 +388,11 @@ namespace GameControllers
 
             Debug.Log($"Game Over. Tiles P1={p1Owned} P2={p2Owned}. Winner: P{winnerIndex}");
             // TODO: Show an end-screen
+            
+            
+            //todo" remove
+            winUI.SetActive(true);
+            
         }
 
         private static Vector3 ComputeCenter(List<Tile> tiles)
@@ -391,7 +402,13 @@ namespace GameControllers
             foreach (var t in tiles) acc += t.transform.position;
             return acc / tiles.Count;
         }
-                
+
+
+        //todo: delet later
+        public void LoadMenu()
+        {
+            SceneManager.LoadScene(0);
+        }
         
     }
 }
