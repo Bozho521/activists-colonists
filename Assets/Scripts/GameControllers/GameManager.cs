@@ -83,7 +83,11 @@ namespace GameControllers
             voteBar?.SetVotes(_votes.P1, 100 - _votes.P1);
 
             ActivePlayer = _votes.RollWinner();
-            turnUI.UpdatePlayerPoints(ActivePlayer, _players[ActivePlayer].Points);
+            
+            _players[1].AddPoints(gameConfig.pointsPerTile);
+            _players[2].AddPoints(gameConfig.pointsPerTile);
+            turnUI?.UpdatePlayerPoints(1, _players[1].Points);
+            turnUI?.UpdatePlayerPoints(2, _players[2].Points);
             
             BeginTurn();
         }
@@ -124,7 +128,7 @@ namespace GameControllers
 
         private void EndTurn()
         {
-            //update prev player UI
+            //todo: update prev player UI
             turnUI.UpdatePlayerPoints(ActivePlayer, _players[ActivePlayer].Points);
             ActivePlayer = _votes.RollWinner();
             turnUI.UpdatePlayerPoints(ActivePlayer, _players[ActivePlayer].Points);

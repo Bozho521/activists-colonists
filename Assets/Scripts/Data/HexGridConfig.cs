@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using NUnit.Framework;
+using UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Data
 {
@@ -15,5 +17,8 @@ namespace Data
         public List<GameObject> tiles;
         public List<GameObject> capitalistsTiles;
         public List<GameObject> activistsTiles;
+
+
+        public FloatingText floatingText;
     }
 }

@@ -84,6 +84,12 @@ namespace Tiles
             tile.SetBuildable(false);
             var tilePref = PickRandomVisual(owner);
             tile.ApplyVisualTile(tilePref);
+
+            var floatingText = Instantiate(hexGridConfig.floatingText);
+            // floatingText.transform.localPosition = tile.transform.position;
+            floatingText.transform.localPosition = new Vector3(tile.transform.position.x, tile.transform.position.y + 0.5f, tile.transform.position.z - 0.3f);
+            floatingText.gameObject.SetActive(true);
+            floatingText.BeginFloatingText();
         }
         
         private GameObject PickRandomVisual(TileOwner owner)
